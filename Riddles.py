@@ -2,7 +2,7 @@ import numpy as np
 from scipy.optimize import minimize
 import math
 
-#Oct 15 Riddler Express
+#Oct 15 Riddler Express https://fivethirtyeight.com/features/can-you-hit-these-riddles-out-of-the-park/
 def average_games(p = 0.5, a=0, b=0):
     if a == 4 or b == 4:
         return (a+b)
@@ -10,7 +10,7 @@ def average_games(p = 0.5, a=0, b=0):
         return p*average_games(p, a+1, b)+ (1-p)*average_games(p, a, b+1)
 #print(average_games())
     
-#Oct 8 Riddler Express
+#Oct 8 Riddler Express https://fivethirtyeight.com/features/can-you-evade-your-evil-twin/
 def f(x):
     y = ((10000000)*(x/(x+10)))-x
     return -y
@@ -19,7 +19,9 @@ def f(x):
 # ans = minimize(f, x0, method = "Nelder-Mead", options = {'disp': True})
 # print(str(ans.x))
 
-#August 13 Riddler Express
+#September 24 Riddler Classic https://fivethirtyeight.com/features/can-you-climb-your-way-to-victory/
+
+#August 13 Riddler Express https://fivethirtyeight.com/features/are-you-clever-enough/
 def clever():
     ans = 0
     for i in range(10):
