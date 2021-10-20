@@ -1,3 +1,4 @@
+from sklearn.utils import shuffle
 import numpy as np
 from scipy.optimize import minimize
 import math
@@ -20,6 +21,29 @@ def f(x):
 # print(str(ans.x))
 
 #September 24 Riddler Classic https://fivethirtyeight.com/features/can-you-climb-your-way-to-victory/
+def places():
+    mini = 512
+    maxi = 0
+    list1 = shuffle(list(range(1,9)))
+    list2 = shuffle(list(range(1,9)))
+    list3 = shuffle(list(range(1,9)))
+    #print(list1, list2, list3)
+    for i in range(8):
+        score = list1[i]*list2[i]*list3[i]
+        #print(score)
+        mini = min(mini, score)
+        maxi = max(maxi, score)
+    return mini, maxi
+
+# win_scores = []
+# lose_scores = []
+# for i in range(9):
+#      minny, verstappen = places()
+#      win_scores.append(minny)
+#      lose_scores.append(verstappen)
+# print(max(win_scores), min(lose_scores))
+
+
 
 #August 13 Riddler Express https://fivethirtyeight.com/features/are-you-clever-enough/
 def clever():
