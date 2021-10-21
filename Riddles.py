@@ -4,6 +4,21 @@ from scipy.optimize import minimize
 import scipy.integrate as integrate
 import math
 
+#Oct 20 Teaser on run with friend: "Calculate pi with random number generator" (9 is my favorite number)
+def darts():
+    nume = 0
+    for i in range(999999):
+        x = np.random.uniform(0, 18)
+        y = np.random.uniform(0, 18)
+        distance = np.sqrt((x-9)**2 + (y-9)**2)
+        if distance < 9:
+            nume += 1
+    return 4*nume/999999
+
+print(darts())
+
+
+
 #Oct 15 Riddler Express https://fivethirtyeight.com/features/can-you-hit-these-riddles-out-of-the-park/
 def average_games(p = 0.5, a=0, b=0):
     if a == 4 or b == 4:
@@ -67,9 +82,10 @@ ans = integrate.quad(f, 0, 1)
 def penalty_simulation(p=0.7):
     team_a = 0
     team_b = 0
+    count = 0
 
     # conditions
-    # 6: 3-0 or 0-3
+    # 6: count = 6, 3-0 or 0-3
     # 7: 4-1 (first team misses, second team makes)
     # 8: 4-1 (with miss) 
 
