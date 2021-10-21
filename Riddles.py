@@ -1,6 +1,7 @@
 from sklearn.utils import shuffle
 import numpy as np
 from scipy.optimize import minimize
+import scipy.integrate as integrate
 import math
 
 #Oct 15 Riddler Express https://fivethirtyeight.com/features/can-you-hit-these-riddles-out-of-the-park/
@@ -54,3 +55,21 @@ def clever():
     return ans
 
 #print(clever())
+
+
+#July 16 Riddler Express and Riddler Classic https://fivethirtyeight.com/features/can-you-win-the-penalty-shootout/
+def f(x):
+    return (x**2)+(1-x)**2
+
+ans = integrate.quad(f, 0, 1)
+#print(ans)
+
+def penalty_simulation(p=0.7):
+    team_a = 0
+    team_b = 0
+
+    # conditions
+    # 6: 3-0 or 0-3
+    # 7: 4-1 (first team misses, second team makes)
+    # 8: 4-1 (with miss) 
+
