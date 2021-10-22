@@ -34,7 +34,6 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         ```
         For an example, my three lists of `[1,2,3,4,5,6,7,8], [1,2,3,4,5,6,7,8], [1,2,3,4,5,6,7,8]` could be shuffled into  `[6,7,1,3,4,2,8,5], [5,2,6,3,4,7,1,8], [8,6,4,5,1,3,2,7]`. Thus, player 1 (at index 0) would have a final score of 6x5x8 = 240 and player 2 (at index 1) would have a final score of 7x2x6 = 84. I would do this for every player and return the minimum and maximum scores. I found the maximum of the minimum (winning) scores to be 48 and the minimum of the maximum (losing) scores to be 60.
         I made a heatmap and bar charts to show the distribution of scores from my simulations.
-        
         Histogram:
         ![](Vizes/924/924heatmap.png)
         Distribution of Winning Scores:
