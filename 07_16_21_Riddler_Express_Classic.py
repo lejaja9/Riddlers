@@ -1,7 +1,6 @@
 #July 16 Riddler Express and Riddler Classic https://fivethirtyeight.com/features/can-you-win-the-penalty-shootout/
 import scipy.integrate as integrate
-
-
+import numpy as np
 
 def f(x):
     return (x**2)+(1-x)**2
