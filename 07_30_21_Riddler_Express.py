@@ -1,3 +1,5 @@
+#July 30 Riddler Express https://fivethirtyeight.com/features/will-riddler-nation-win-gold-in-archery/
+
 def arrows():
     ans = []
     list = [10, 9, 5]

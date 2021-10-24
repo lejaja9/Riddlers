@@ -49,9 +49,35 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         percent_cleverest = (math.comb(9,i)*((0.9)**(9-i)*(0.1**(i)))*(1/(1+i)))
         ```
 
-* **[07/30/21 Riddler Express](https://fivethirtyeight.com/features/will-riddler-nation-win-gold-in-archery/)
+* **[07/30/21 Riddler Express](https://fivethirtyeight.com/features/will-riddler-nation-win-gold-in-archery/)**
     * At first glance, we can see that the expected score of Riddler Nation is 24. Isn't that convenient! At second glance, however, I realized that the distribution of scores may not be symmetric: for an example, a 99% chance of scoring 0 and a 1% chance of scoring a 2400 also yields an expected score of 24, but no way the odds of each team winning are 50-50.
     I found the 27 permutations for the series of 3 shots and counted the total number of permutations below, at, and above 24 points (10, 6, and 11). Because we know that the ties go into another 3 shots, the answer is 11/21, or the number of permutations that Riddler Nation scores above 24 divided by the number of all non-tying outcomes.
+
+* **[07/30/21 Riddler Express](https://fivethirtyeight.com/features/can-you-hop-across-the-chessboard/)**
+    * This Riddler may have the 'Express' suffix, but I promise you that coding this algorithm was not express at all!
+    I created a matrix of the chess pieces and all the possible moves for each piece, as seen below:
+        ```python
+        matrix = [
+        ['K', 'BL', 'b', 'BL', 'K', 'r', 'b', 'r'],
+        ['n', 'r', 'n', 'n', 'p', 'n', 'K', 'b'],
+        ['r', 'BL', 'n', 'BL', 'p', 'r', 'p', 'r'],
+        ['BL', 'BL', 'p', 'r', 'BL', 'n', 'BL', 'BL'],
+        ['n', 'n', 'n', 'b', 'BL', 'b', 'r', 'b'],
+        ['q', 'r', 'n', 'p', 'BL', 'n', 'r', 'q'],
+        ['BL', 'BL', 'r', 'p', 'b', 'p', 'b', 'q'],
+        ['K', 'b', 'q', 'n', 'p', 'r', 'n', 'n']]
+        #initial position is matrix[6][4], bishop
+        b_moves = [[1,1], [1,-1], [-1,-1], [-1,1]]
+        r_moves = [[1,0], [-1,0], [0,1], [0,-1]]
+        n_moves = [[-1,2], [-2,1], [-2,-1], [-1,-2], [1,-2], [-2,1], [2,1], [1,2]]
+        p_moves = [[-1,-1], [-1,1]]
+        q_moves = b_moves+r_moves
+        ```
+        I then wrote a DFS helper function which took the initial Bishop and moved it in every way possible. From there, I took each piece from the new squared and moved that piece in every way possible. I kept doing this until a piece either moved into the King's square or a black piece's square. I found three paths to reach a King:
+        * 1. [(6, 4, 'Bishop'), (5, 3, 'Pawn'), (4, 2, 'Knight'), (5, 0, 'Queen'), (4, 1, 'Knight'), (2, 2, 'Knight'), (1, 4, 'Pawn'), (0, 5, 'Rook'), (0, 4, 'King')]
+        * 2. [(6, 4, 'Bishop'), (5, 3, 'Pawn'), (4, 2, 'Knight'), (5, 0, 'Queen'), (4, 1, 'Knight'), (2, 2, 'Knight'), (1, 0, 'Knight'), (0, 2, 'Bishop'), (1, 3, 'Knight'), (2, 5, 'Rook'), (3, 5, 'Knight'), (1, 6, 'King')]
+        * 3. [(6, 4, 'Bishop'), (5, 3, 'Pawn'), (4, 2, 'Knight'), (5, 0, 'Queen'), (4, 1, 'Knight'), (2, 2, 'Knight'), (1, 0, 'Knight'), (0, 2, 'Bishop'), (1, 1, 'Rook'), (1, 2, 'Knight'), (0, 0, 'King')]
+
 
 * **[07/16/21 Riddler Express and Classic](https://fivethirtyeight.com/features/can-you-win-the-penalty-shootout/)**
     * **Express:**
