@@ -36,11 +36,11 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         I made a heatmap and bar charts to show the distribution of scores from my simulations.
         
         Histogram:
-        ![](Vizes/924/924heatmap.png)
+        ![](Vizes/0924/0924heatmap.png)
         Distribution of Winning Scores:
-        ![](Vizes/924/924winscorebarh.png)
+        ![](Vizes/0924/0924winscorebarh.png)
         Distribution of Losing Scores:
-        ![](Vizes/924/924losescorebarh.png)
+        ![](Vizes/0924/0924losescorebarh.png)
 
 * **[08/13/21 Riddler Express](https://fivethirtyeight.com/features/are-you-clever-enough/)**
     * To solve this Riddler, we need to use binomial distribution. 
@@ -84,7 +84,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
     For the sake of simplicity, let's assume that the length of the stick is 1. When Fatch fetches the stick (say that 10 times fast), we know that the top portion will be painted black and the bottom portion white. We can denote the black area with length x and the white area with length 1-x (note that black + white = 1).
     We want to know the probability Fetch and Fitch fetch the stick by biting in the same colored area, which will be black-black (x)^2 or white-white (1-x)^2, so x^2 + (1-x)^2. Because Fatch bites the stick at a random point, we know that the length of x (and thus the length of 1-x) will be distributed uniformly from 0 to 1. We can integrate the equation above from the interval (0,1) (I lost my handy TI-84 so I put it into SciPy) to find our answer of **0.667**.
     
-    	![](Vizes/716expressintegral.png "Photo credits goes to WolframAlpha")
+    	![](Vizes/0716expressintegral.png "Photo credits goes to WolframAlpha")
     
     	I found this problem three times as difficult as usual due to the fact that I had to (1) do the math, (2) keep up with the names of Fatch, Fetch, and Fitch         (which somehow are *way* more confusing than Kim, Khloe, and Kourtney), and (3) decide whether I would integrate by hand, WolframAlpha, SciPy, or spend the         effort trying to find my TI-84.
     * **Classic**
@@ -100,3 +100,20 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
             return (a_count+b_count)
         ```
         I ran 10 million simulations and found the average number of shots to be around **10.47**. Go Tottenham Hotspurs!
+
+* **[07/09/21 Riddler Express](https://fivethirtyeight.com/features/can-you-solve-this-astronomical-enigma/)**
+    * **Express:**
+    For this brute force solution, I used Math's GCD function to find pairs of numbers between 1 and 20 that were relatively prime. I then threw the pair of numbers into my years function, which would find keep finding multiples of each number in the pair until the difference between two multiples was 1, which would result in an interference.
+        ```python
+        def years(num1, num2):
+            sum1 = 0
+            sum2 = 0
+            while abs(sum1-sum2) != 1:
+                if sum1 <= sum2:
+                    sum1 += num1
+                else:
+                    sum2 += num2
+            return [num1, num2, max(sum1, sum2)]
+        ```
+        I found the answer to be **153 years**, when one brood of cicadas emerges every 19 years and the other emerges every 17 years. I made a table (below) to show the latest possible interference for every pair cicada broods:
+        ![](Vizes/0709scatter.png)
