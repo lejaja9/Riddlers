@@ -1,6 +1,6 @@
+#Oct 20 Teaser on run with friend: "Calculate pi with random number generator" (9 is my favorite number)
 import numpy as np
 
-#Oct 20 Teaser on run with friend: "Calculate pi with random number generator" (9 is my favorite number)
 def darts():
     nume = 0
     for i in range(999999):
