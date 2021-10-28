@@ -5,8 +5,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 * **[Riddles.py](Riddles)**
     * [Euler #102](https://projecteuler.net/problem=102)
         * This problem is basically 538's [10/22/21 Riddler Classic](https://fivethirtyeight.com/features/who-betrayed-dunes-duke-leto/), so I could not pass on the opportunity to solve it.
-        
-            The key of this problem is figuring out how to determine of a point lies in a triangle. Here is what I saw:
+            The key of this problem is figuring out how to determine if a point lies in a triangle. Here is what I saw:
             
             ![](Vizes/Euler/102triangle.png)
             
