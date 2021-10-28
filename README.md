@@ -7,7 +7,9 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         * This problem is basically 538's [10/22/21 Riddler Classic](https://fivethirtyeight.com/features/who-betrayed-dunes-duke-leto/), so I could not pass on the opportunity to solve it.
         
             The key of this problem is figuring out how to determine of a point lies in a triangle. Here is what I saw:
+            
             ![](Vizes/Euler/102triangle.png)
+            
             If triangle ABC contains origin O, area ABC = area ABO + area ACO + area COB. With this in mind, I just iterated through the list of triangles and calcualted the area of the main triangle and the 3 "sub-triangles." If the sum of the area of the 3 "sub-triangles" equaled the area of the main triangle, we know that the triangle contains the origin. The answer ended up turning out to be **228**.
 
     * [Euler #32](https://projecteuler.net/problem=32)
