@@ -5,7 +5,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 * **[Riddles.py](Riddles)**
     * [Euler #102](https://projecteuler.net/problem=102)
         * This problem is basically 538's [10/22/21 Riddler Classic](https://fivethirtyeight.com/features/who-betrayed-dunes-duke-leto/), so I could not pass on the opportunity to solve it.
-            The key of this problem is figuring out how to determine if a point lies in a triangle. Here is what I saw:
+            The key to this problem is figuring out how to determine if a point lies in a triangle. Here is what I saw:
             
             ![](Vizes/Euler/102triangle.png)
             
@@ -14,7 +14,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
     * [Euler #32](https://projecteuler.net/problem=32)
         * Last weekend, while on a drive to a race, a running friend (it's always over running) introduced me to Project Euler. As 32 is one of my favorite numbers (although not as preferable as 9), I decided to do this problem first.
         
-            So we know that the length of the multiplier, multiplicand, and product have to be equal to 9, and the digits have to represent the numbers 1-9 once. In order to satisfy the first condition, if the multiplier is one digit long and the multiplicand is four digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (1+4+4=9). If the multiplier is two digits long and the multiplicand is three digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (2+3+4=9). (Since we only sum each product once, we don't have to consider a three digit long multiplier and a two digit long multiplicand, as that is just the reverse of a two digit multiplier and a three digit multiplicand.) No other lengths satisfy the first condition.
+            So we know that the length of the multiplier, multiplicand, and product have to be equal to 9, and the digits have to represent the numbers 1-9 once. With this in mind, if the multiplier is one digit long and the multiplicand is four digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (1+4+4=9). If the multiplier is two digits long and the multiplicand is three digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (2+3+4=9). (Since we only sum each product once, we don't have to consider a three digit long multiplier and a two digit long multiplicand, as that is just the reverse of a two digit multiplier and a three digit multiplicand.) No other lengths satisfy the first condition.
             
             From there, I used brute force to multiply all one-digit integers by all four-digit integers and all two-digit integers by all three-digit integers. I then wrote a function to find if the length of the multiplier, multiplicand, and product would be 9 and if so, if they would contain each digit from 1-9 once.
 
@@ -23,6 +23,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
     * 10/25 Riddle
         * *If a stick of length x is broken into three pieces, what is the probability that the three pieces can be used to construct a triangle?*
+        
             So I actually came across this problem (not on a run, for once) while browsing through Math Stack Exchange, and it ate at me throughout the day until I had an "a-ha" moment while making myself a mid-day snack in the kitchen (cereal, to be exact).
             
             ![](Vizes/1025/1025line1.png)
