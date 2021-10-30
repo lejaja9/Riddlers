@@ -1,3 +1,4 @@
+# 10/29/21 Riddler Classic https://fivethirtyeight.com/features/can-you-survive-squid-game-riddler/
 from math import comb
 import time
 
