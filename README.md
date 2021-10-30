@@ -60,7 +60,9 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
     * Ah, the Squid Game!
     So this problem, just FYI, is very similar to the 8/13/21 Riddler Express I did a few weeks ago.
 
-        We want to find the average number of survivors for this challenge,or the weighted average of the number of survivors: 1xP(1 survivor) + 2xP(2 survivors) + 3xP(3 survivors) + ... + 16xP(16 survivors). To find the probabilities, we can use binomial distribution. For an example, P(3 survivors) = P(13 deaths) *yikes!* 18C3 x (0.5)^18 since the probability of life and death are both 0.5. I found this answer to be approximately **7 survivors** (7.0000152587890625, to be exact), which is much better than the 3 who survived on the show. They got really unlucky!
+        We want to find the average number of survivors for this challenge, or the weighted average of the number of survivors for every scenario: 1xP(1 survivor) + 2xP(2 survivors) + 3xP(3 survivors) + ... + 16xP(16 survivors). To find the probabilities, we can use binomial distribution. For an example, P(3 survivors) = P(13 deaths) = 18C3 x (0.5)^18 (since the probability of life and death are both 0.5). I found this answer to be approximately **7 survivors** (7.0000152587890625, to be exact), which is much better than the 3 who survived on the show. They got really unlucky, and they had a glass maker on their side!
+
+        For an approximation, we know that each of the 18 steps has a 50% chance of breaking. Thus, it is expected that every contestant will step on 2 glass tiles before falling to their death. In order to traverse the 18 steps, we can estimate 18/2 = 9 deaths, or 7 survivors - an estimation very, very close to the actual answer.
 
         On a sidenote, the reason why I have two files for this Riddler is one for the general code and a second, more optimized one for speed since we know that the probabilities of binomial distribution are symmetric. I am doing so because my friend and I placed a bet ([*HIMYM*](https://en.wikipedia.org/wiki/Slap_Bet), anyone?) on who could code a faster run time for this solution... I will keep you all updated!
 
