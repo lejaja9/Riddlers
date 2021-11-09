@@ -135,6 +135,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         * I initially tried to use brute force to solve this problem by using prime factorization (finding if the GCF of a pair of numbers is 1), which I quickly realized jacked up the time complexity. Even using the Math GCD function, it would take too long to run the problem up to 1,000,000. At a loss (and I will admit that this came with a bit of shame), I went to Google for inspiration.
 
             Turns out, this problem is very close to [Project Euler #69](https://projecteuler.net/problem=69). That problem's illustration gave me an idea of how to solve this problem:
+            
         ![](Vizes/Euler/72_69.png)
 
             I can just sum up Euler's totient function from 2 to 1000000.
