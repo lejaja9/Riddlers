@@ -2,62 +2,6 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
-* **[Riddles.py](Riddles)**
-    * [Euler #9](https://projecteuler.net/problem=9)
-        * Ah, I finally got around to doing problem #9! For this riddle, I just used two for-loops, one from 1-1000 and the second from the first number-1000 to brute force the solution. I found the triplet to be the numbers (200, 375, 425) and thus a solution of **31,875,000**.
-
-    * [Euler #102](https://projecteuler.net/problem=102)
-        * This problem is basically 538's [10/22/21 Riddler Classic](https://fivethirtyeight.com/features/who-betrayed-dunes-duke-leto/), so I could not pass on the opportunity to solve it.
-            The key to this problem is figuring out how to determine if a point lies in a triangle. Here is what I saw:
-            
-            ![](Vizes/Euler/102triangle.png)
-            
-            If triangle ABC contains origin O, area ABC = area ABO + area ACO + area COB. With this in mind, I just iterated through the list of triangles and calcualted the area of the main triangle and the 3 "sub-triangles." If the sum of the area of the 3 "sub-triangles" equaled the area of the main triangle, we know that the triangle contains the origin. The answer ended up turning out to be **228**.
-
-    * [Euler #32](https://projecteuler.net/problem=32)
-        * Last weekend, while on a drive to a race, a running friend (it's always over running) introduced me to Project Euler. As 32 is one of my favorite numbers (although not as preferable as 9), I decided to do this problem first.
-        
-            So we know that the length of the multiplier, multiplicand, and product have to be equal to 9, and the digits have to represent the numbers 1-9 once. With this in mind, if the multiplier is one digit long and the multiplicand is four digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (1+4+4=9). If the multiplier is two digits long and the multiplicand is three digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (2+3+4=9). (Since we only sum each product once, we don't have to consider a three digit long multiplier and a two digit long multiplicand, as that is just the reverse of a two digit multiplier and a three digit multiplicand.) No other lengths satisfy the first condition.
-            
-            From there, I used brute force to multiply all one-digit integers by all four-digit integers and all two-digit integers by all three-digit integers. I then wrote a function to find if the length of the multiplier, multiplicand, and product would be 9 and if so, if they would contain each digit from 1-9 once.
-
-            Here is a list of all the (multiplier, multiplicand, product) that satisfy the conditions: [(4, 1738, 6952), (4, 1963, 7852), (12, 483, 5796), (18, 297, 5346), (27, 198, 5346), (28, 157, 4396), (39, 186, 7254), (42, 138, 5796), (48, 159, 7632)].
-            The answer is **45228**.
-
-    * 10/25 Riddle
-        * *If a stick of length x is broken into three pieces, what is the probability that the three pieces can be used to construct a triangle?*
-        
-            So I actually came across this problem (not on a run, for once) while browsing through Math Stack Exchange, and it ate at me throughout the day until I had an "a-ha" moment while making myself a mid-day snack in the kitchen (cereal, to be exact).
-            
-            ![](Vizes/1025/1025line1.png)
-            
-            Let's assume, for simplicity's sake, that the length of the stick is 1. *Thus, in order for the pieces to construct a triangle, the longest piece has to be less than the length 1/2*. Now, let's assume that we randomly first break the stick at a point on the left half of the stick. If the first point is on the very left edge of the stick, there is no "sweet spot" where the second point could be and still form a triangle, because any subsequent point will result in one segement greater than the length of 1/2.
-            
-            ![](Vizes/1025/1025line2.png)
-            
-            Let's move toward the center and see what happens. If the first break is at the "1/4th point" of the line, we see a highlighted "sweet spot" on the right half of the line of length 1/4 in which if the second breaking point is in that spot, the pieces form a triangle.
-            
-            ![](Vizes/1025/1025line3.png)
-            
-            Let's move even closer, now to the "3/4th point" of the line. We can see now that the "sweet spot" increases even more to length 3/4... are we starting to see a pattern?
-            
-            ![](Vizes/1025/1025line4.png)
-            
-            As the breaking point moves by x into the center, the space of the "sweet spot" increases by  x (in fact, it stretches out from the center of stick by length x). Thus, I integrated x from 0 to 0.5 (because we are only considering points on the left half of the stick) and multiplied the answer by 2 (to account for the fact that the first point can be either on the left half or right half of the stick). I found the probability to be **1/4**.
-            
-            ![](Vizes/1025/1025integral.png)
-    * 10/20 Riddle
-        * While on a run, my friend gave me a teaser: approximate pi given a random number generator. *Whatttttt?!?!* For the next few miles, I was tortured by this question, and thankfully someone mused: "It's just throwing darts on a board." It hit me: Area = pi*r^2. If r = 1, area would just equal pi. In a 2x2 square (or as I found out, any square), the probability a dart would be in the circle is pi/4.
-        From there, I used a random generator to generate (x,y) points in an 18x18 square (because my favorite number is 9). If the point was less than 9 units away from the center (9,9), the point was in the circle. If more than 9 units away, it was not. 
-            ```python
-            x = np.random.uniform(0, 18)
-            y = np.random.uniform(0, 18)
-            distance = np.sqrt((x-9)**2 + (y-9)**2)
-            if distance < 9:
-                nume += 1
-            ```
-            Simple algebra yieled the answer: pi = 4*(darts in circle)/(total number of throws).
-            To be clear, I am still very scared to see whats in store next week at run club.
 
 * **[11/5/21 Riddler Classic](https://fivethirtyeight.com/features/how-many-friends-are-on-the-riddler-social-network/)**
     * Hi! What a nifty Riddler this was!
@@ -184,3 +128,81 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         ```
         I found the answer to be **153 years**, when one brood of cicadas emerges every 19 years and the other emerges every 17 years. I made a table (below) to show the latest possible interference for every pair cicada broods:
         ![](Vizes/0709scatter.png)
+
+
+* **[Riddles.py](Riddles)**
+    * [Euler #72](https://projecteuler.net/problem=72)
+        * I initially tried to use brute force to solve this problem by using prime factorization (finding if the GCF of a pair of numbers is 1), which I quickly realized jacked up the time complexity. Even using the Math GCD function, it would take too long to run the problem up to 1,000,000. At a loss (and I will admit that this came with a bit of shame), I went to Google for inspiration.
+
+            Turns out, this problem is very close to [Project Euler #69](https://projecteuler.net/problem=69). That problem's illustration gave me an idea of how to solve this problem:
+        ![](Vizes/Euler/72_69.png)
+
+            I can just sum up Euler's totient function from 2 to 1000000.
+
+            With [some further Googleing](https://www.doc.ic.ac.uk/~mrh/330tutor/ch05s02.html) and [a YouTube video](https://www.youtube.com/watch?v=qa_hksAzpSg), I went back to work. Most importantly, I learned that phi(A*B) = phi(A)*phi(B) if A and B are coprime.
+            
+            I continued by generating primes from 1 to 1000000, using the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) (because once again, iteration took too long). From there, I created a list of length 1,000,000. If a number is prime (i.e in my list of primes), we know that phi(number) = number - 1. If the number has two coprime factors, we know that phi(A*B) = phi(A)*phi(B). And if all else fails, we can just use Euler's totient function. With these lines of code, I found the answer to be **303963552391**. It takes about 80 seconds to run this algorithm. While I know that this algorithm is not optimal, I am just relieved that I found a way to an answer that doesn't require me to leave my computer running overnight!
+
+
+
+    * [Euler #8](https://projecteuler.net/problem=8)
+        * In order to find the greatest product of 13 adjacent numbers in this ~big scary number~, I realized that I need to create a sliding window of size 13 and move that window through the entire number. The first step was to turn the ~big scary number~ into a list. Then, I created a sliding window of size 13 with the code `window = list[i-13:i]`. For every window, I would calculate the product. The maximum product is **23514624000**.
+
+    * [Euler #3](https://projecteuler.net/problem=3)
+        * For this problem, I kept dividing 600851475143 by 2 until I no longer could, then I would divide the resulting quotient by 3 until I no longer could... and so on until the dividend was greater than the divisor. The prime factors of 600851475143 are [71, 839, 1471, 6857], and thus the answer is **6857**.
+
+    * [Euler #9](https://projecteuler.net/problem=9)
+        * Ah, I finally got around to doing problem #9! For this riddle, I just used two for-loops, one from 1-1000 and the second from the first number-1000 to brute force the solution. I found the triplet to be the numbers (200, 375, 425) and thus a solution of **31,875,000**.
+
+    * [Euler #102](https://projecteuler.net/problem=102)
+        * This problem is basically 538's [10/22/21 Riddler Classic](https://fivethirtyeight.com/features/who-betrayed-dunes-duke-leto/), so I could not pass on the opportunity to solve it.
+            The key to this problem is figuring out how to determine if a point lies in a triangle. Here is what I saw:
+            
+            ![](Vizes/Euler/102triangle.png)
+            
+            If triangle ABC contains origin O, area ABC = area ABO + area ACO + area COB. With this in mind, I just iterated through the list of triangles and calcualted the area of the main triangle and the 3 "sub-triangles." If the sum of the area of the 3 "sub-triangles" equaled the area of the main triangle, we know that the triangle contains the origin. The answer ended up turning out to be **228**.
+
+    * [Euler #32](https://projecteuler.net/problem=32)
+        * Last weekend, while on a drive to a race, a running friend (it's always over running) introduced me to Project Euler. As 32 is one of my favorite numbers (although not as preferable as 9), I decided to do this problem first.
+        
+            So we know that the length of the multiplier, multiplicand, and product have to be equal to 9, and the digits have to represent the numbers 1-9 once. With this in mind, if the multiplier is one digit long and the multiplicand is four digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (1+4+4=9). If the multiplier is two digits long and the multiplicand is three digits long, the product will be either four or five digits long, thereby potentially satisfying the first condition (2+3+4=9). (Since we only sum each product once, we don't have to consider a three digit long multiplier and a two digit long multiplicand, as that is just the reverse of a two digit multiplier and a three digit multiplicand.) No other lengths satisfy the first condition.
+            
+            From there, I used brute force to multiply all one-digit integers by all four-digit integers and all two-digit integers by all three-digit integers. I then wrote a function to find if the length of the multiplier, multiplicand, and product would be 9 and if so, if they would contain each digit from 1-9 once.
+
+            Here is a list of all the (multiplier, multiplicand, product) that satisfy the conditions: [(4, 1738, 6952), (4, 1963, 7852), (12, 483, 5796), (18, 297, 5346), (27, 198, 5346), (28, 157, 4396), (39, 186, 7254), (42, 138, 5796), (48, 159, 7632)].
+            The answer is **45228**.
+
+    * 10/25 Riddle
+        * *If a stick of length x is broken into three pieces, what is the probability that the three pieces can be used to construct a triangle?*
+        
+            So I actually came across this problem (not on a run, for once) while browsing through Math Stack Exchange, and it ate at me throughout the day until I had an "a-ha" moment while making myself a mid-day snack in the kitchen (cereal, to be exact).
+            
+            ![](Vizes/1025/1025line1.png)
+            
+            Let's assume, for simplicity's sake, that the length of the stick is 1. *Thus, in order for the pieces to construct a triangle, the longest piece has to be less than the length 1/2*. Now, let's assume that we randomly first break the stick at a point on the left half of the stick. If the first point is on the very left edge of the stick, there is no "sweet spot" where the second point could be and still form a triangle, because any subsequent point will result in one segement greater than the length of 1/2.
+            
+            ![](Vizes/1025/1025line2.png)
+            
+            Let's move toward the center and see what happens. If the first break is at the "1/4th point" of the line, we see a highlighted "sweet spot" on the right half of the line of length 1/4 in which if the second breaking point is in that spot, the pieces form a triangle.
+            
+            ![](Vizes/1025/1025line3.png)
+            
+            Let's move even closer, now to the "3/4th point" of the line. We can see now that the "sweet spot" increases even more to length 3/4... are we starting to see a pattern?
+            
+            ![](Vizes/1025/1025line4.png)
+            
+            As the breaking point moves by x into the center, the space of the "sweet spot" increases by  x (in fact, it stretches out from the center of stick by length x). Thus, I integrated x from 0 to 0.5 (because we are only considering points on the left half of the stick) and multiplied the answer by 2 (to account for the fact that the first point can be either on the left half or right half of the stick). I found the probability to be **1/4**.
+            
+            ![](Vizes/1025/1025integral.png)
+    * 10/20 Riddle
+        * While on a run, my friend gave me a teaser: approximate pi given a random number generator. *Whatttttt?!?!* For the next few miles, I was tortured by this question, and thankfully someone mused: "It's just throwing darts on a board." It hit me: Area = pi*r^2. If r = 1, area would just equal pi. In a 2x2 square (or as I found out, any square), the probability a dart would be in the circle is pi/4.
+        From there, I used a random generator to generate (x,y) points in an 18x18 square (because my favorite number is 9). If the point was less than 9 units away from the center (9,9), the point was in the circle. If more than 9 units away, it was not. 
+            ```python
+            x = np.random.uniform(0, 18)
+            y = np.random.uniform(0, 18)
+            distance = np.sqrt((x-9)**2 + (y-9)**2)
+            if distance < 9:
+                nume += 1
+            ```
+            Simple algebra yieled the answer: pi = 4*(darts in circle)/(total number of throws).
+            To be clear, I am still very scared to see whats in store next week at run club.
