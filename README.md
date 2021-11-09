@@ -136,8 +136,8 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
             Turns out, this problem is very close to [Project Euler #69](https://projecteuler.net/problem=69). That problem's illustration gave me an idea of how to solve this problem:
             
-        ![](Vizes/Euler/72_69.png)
-
+            ![](Vizes/Euler/72_69.png)
+        
             I can just sum up Euler's totient function from 2 to 1000000.
 
             With [some further Googleing](https://www.doc.ic.ac.uk/~mrh/330tutor/ch05s02.html) and [a YouTube video](https://www.youtube.com/watch?v=qa_hksAzpSg), I went back to work. Most importantly, I learned that phi(A*B) = phi(A)*phi(B) if A and B are coprime.
