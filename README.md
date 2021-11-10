@@ -131,6 +131,9 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
 * **[Riddles.py](Riddles)**
+    * [Euler #22](https://projecteuler.net/problem=22)
+        * I don't know about you, but in honor of Taylor Swift dropping Red this week, I was feeling question 22. In this problem, I just iterated through every name and every letter in every name, using the ord() function to find the value for each letter (a dictionary works too). (Please note that I subtracted 60 from every name due to the quotation marks.) Then, I multiplied the value of the name by its index+1 to find an answer of **871198282**.
+
     * [Euler #72](https://projecteuler.net/problem=72)
         * I initially tried to use brute force to solve this problem by using prime factorization (finding if the GCF of a pair of numbers is 1), which I quickly realized jacked up the time complexity. Even using the Math GCD function, it would take too long to run the problem up to 1,000,000. At a loss (and I will admit that this came with a bit of shame), I went to Google for inspiration.
 
