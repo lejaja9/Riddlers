@@ -131,6 +131,13 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
 * **[Riddles.py](Riddles)**
+   * [Euler #112](https://projecteuler.net/problem=112)
+        * In order to determine if a number is bouncy, I used the mod function to iterate through a number. For an example, with the number 134468, I iterated through the number backwards, in the order 8-6-4-4-2-1 (8 = 134468%10, 6 = 13446%10, and so on). If the numbers kept increasing or decreasing to completion, the number is not bouncy. Otherwise, it is.
+        With that function, I ran a while loop until the proportion of bouncy numbers reached exactly 0.99 (I actually started at 538, where the proportion of bouncy numbers first reaches 50% as seen in the problem to avoid a divide by zero error when calculating the proportion). I found the answer to be **1587000**.
+
+    * [Euler #12](https://projecteuler.net/problem=12)
+        * I knew that you can find the [number of divisors of a number via prime factorization](https://www2.math.upenn.edu/~deturck/m170/wk2/numdivisors.html). Thus, I wrote a prime factorization helper function and then used that function to find the number of divisors. I finished by generating the next triangle number until I found one with more than 500 divisors, which turned out to be **76576500**.
+
     * [Euler #22](https://projecteuler.net/problem=22)
         * I don't know about you, but in honor of Taylor Swift dropping Red this week, I was feeling question 22. In this problem, I just iterated through every name and every letter in every name, using the ord() function to find the value for each letter (a dictionary works too). (Please note that I subtracted 60 from every name due to the quotation marks.) Then, I multiplied the value of the name by its index+1 to find an answer of **871198282**.
 
