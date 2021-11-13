@@ -6,15 +6,13 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 * **[11/5/21 Riddler Classic](https://fivethirtyeight.com/features/how-many-friends-are-on-the-riddler-social-network/)**
     * Hi! What a nifty Riddler this was!
     
-        Initially, I thought about using brute force method along the sort of `for num in range(1, sqrt(number))` to find every factor (and hence the sum of all the factors) of a number. Yet, I couldn't help but feel that this method was very inefficient. Upon further thinking, I was wondering [how to find the sum of all factors from prime factorization](https://www2.math.upenn.edu/~deturck/m170/wk3/lecture/sumdiv.html), which would save a lot of unnecessary work.
+        Initially, I thought about using brute force method along the sort of `for num in range(1, sqrt(number))` to find every factor (and hence the sum of all the factors) of a number. Yet, I couldn't help but feel that this method was very inefficient. Upon further thinking, I was wondering [how to find the sum of all factors from prime factorization](https://www.math.upenn.edu/~deturck/m170/wk3/lecture/sumdiv.html), which would save a lot of unnecessary work.
 
         With that in mind, I decided to make a dictionary which stores the prime factorization of every number, and I would work with my dictionary to find the prime factorization of every new number. For an example, we know that the prime factorization of 9 is 3^2, and we also know that 18 = 9x2, so we know that the prime factorization of 18 is just the prime factorization of 9 with an additional 2, or 3^2 x 2. From there, I could find the sum of all factors and see if that number fulfilled the property.
 
         Using my algorithm, I found two additional numbers, **378 and 49600**. We know that the factors of 378 are [1, 2, 3, 6, 7, 9, 14, 18, 21, 27, 42, 54, 63, 126, 189,  378], with a sum of all the factors equalling 960; 378 inches = 960.12 centimeters. We also know that the factors of 49600 are [1, 2, 4, 5, 8, 10, 16, 20, 25, 31, 32, 40, 50, 62, 64, 80, 100, 124, 155, 160, 200, 248, 310, 320, 400, 496, 620, 775, 800, 992, 1240, 1550, 1600, 1984, 2480, 3100, 4960, 6200, 9920, 12400, 24800, 49600], with a sum of 125984; 49600 inches = 125984 centimeters.
 
         That Riddler was a doozy! I am very excited to see what other numbers (if any) that Riddler Nation is able to find and how they went about it.
-
-        Update: It seems as if 378 and 49600 are the only two numbers that satisfy the condition
 
 * **[10/29/21 Riddler Classic](https://fivethirtyeight.com/features/can-you-survive-squid-game-riddler/)**
     * Ah, the Squid Game!
@@ -27,7 +25,6 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         On a sidenote, the reason why I have two files for this Riddler is one for the general code and a second, more optimized one for speed since we know that the probabilities of binomial distribution are symmetric. I am doing so because my friend and I placed a bet ([*HIMYM*](https://en.wikipedia.org/wiki/Slap_Bet), anyone?) on who could code a faster run time for this solution... I will keep you all updated!
         
         (Update: I had the faster run time as my friend used dynamic programming to come up with his solution, but that begs the question... how can I use DP to come up with this solution?)
-
 
 * **[10/15/21 Riddler Express](https://fivethirtyeight.com/features/can-you-hit-these-riddles-out-of-the-park/)**
     * Since the first team to 4 wins wins, and Team A wins p% of the time, I created a recursive function that ends when one team hits 4 wins and weigh a Team A win at p% and a Team B win at (1-p)%. The answer is **5.8125**.
