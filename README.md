@@ -14,6 +14,8 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
         That Riddler was a doozy! I am very excited to see what other numbers (if any) that Riddler Nation is able to find and how they went about it.
 
+        Update: It seems as if 378 and 49600 are the only two numbers that satisfy the condition
+
 * **[10/29/21 Riddler Classic](https://fivethirtyeight.com/features/can-you-survive-squid-game-riddler/)**
     * Ah, the Squid Game!
     So this problem, just FYI, is very similar to the 8/13/21 Riddler Express I did a few weeks ago.
@@ -52,6 +54,12 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
         ![](Vizes/0924/0924winscorebarh.png)
         Distribution of Losing Scores:
         ![](Vizes/0924/0924losescorebarh.png)
+
+* **[08/27/21 Riddler Classic](https://fivethirtyeight.com/features/can-you-draft-a-riddler-fantasy-football-dream-team/)**
+    * Happy start of football! Go KC Chiefs! Despite the heartbreaking flashbacks to Super Bowl 43, I went ahead to code this Riddler (I was in 4th grade during Super Bowl 43, and I am still so sad that Larry Fitzgerald didn't win a ring). Rather than set Hames Jarrison's speed to 15mph, I normalized his speed to 1 and calculated how quickly one would have to run (say, Farry Litzgerald) relative to Hames Jarrison's speed to catch him before the end zone. Thus, with every increment, Hames Jarrison would move forward by 0.001 yards, and Farry Litzgerald would move toward Hames Jarrison by 0.001*multiplier yards. From there, I used binary search to find out exactly how fast Farry Litzgerald would run to meet Hames Jarrison. I found that if Litzgerald ran 1.2807822227478027 times as fast as Jarrison, he would not reach Jarrison before the endzone, and if Litzgerald ran 1.2807830047607422 times as fast, he would. This means that Litzgerald would have to run about 15x1.280798 times as fast as Jarrison, or approximately **19.211** miles per hour. To put that in perspective, a 19.211mph 100m dash would take around 11.6 seconds, and this is on turf too!
+
+        Here is a visualization of the path Farry Litzgerald would take to catch Hames Jarrison:
+        ![](Vizes/0827plot.png)
 
 * **[08/13/21 Riddler Express](https://fivethirtyeight.com/features/are-you-clever-enough/)**
     * To solve this Riddler, we need to use binomial distribution. 
