@@ -142,6 +142,18 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
 * **[Riddles.py](Riddles)**
+
+   * [Euler #85](https://projecteuler.net/problem=85)
+        * In honor of Patrick Mahomes' wonderful performance this last Sunday night, I decided to tackle a Project Euler question of 15% difficulty (brownie points if you get the reference!).
+
+            I see two parts to this question. The first is to determine how many rectangles a mxn rectangle can encompass, and the second is to find the dimensions that can get that number as close to 2 million as possible.
+
+            ![](Vizes/Euler/85_boxes.png)
+
+            For part 1, lets consider the 3x3 rectangle above. We can see that if we want to fit a 1x2 (or is it 2x1, I can never remember) rectangle in the 3x3, it can "slide" left and right two positions. The 1x2 rectangle can also "slide" up and down 3 positions. Thus, we know that there are 6 ways (3x2) the 3x3 rectangle can contain a 1x2 rectangle. Thus for the first part, I wrote a function that found out every possible dimension a rectangle can fit in the bigger rectangle, found how many positions the rectangle could "slide" left-right and up-down, and summed the total.
+
+            For part 2 (finding the rectangle dimension closest to containing 2,000,000 rectangles), I used a brute force method. I started with a 1x1 rectangle and kept adding length (i.e. 1x2, 1x3, 1x4, ..., 1xn) until the rectangle would break 2,000,000 possible nested rectangles. I then took a 2x1 rectangle and kept adding to the rectangle (i.e. 2x2, 2x3, 2x4, ..., 2xn) until that rectangle broke 2,000,000 nested rectangles. Just an FYI, for the 1xn rectangle, the dimension ended up being 1x1999, and for a 2xn rectangle, the dimension ended up being 2x1154. Then, I took a 3xn rectangle, 4xn rectangle, and so on. I found out that a 36x77 rectangle could contain 1,999,998 rectangles, leading to an answer of **2772**. Now THIS is an MVP worthy puzzle!
+
    * [Euler #112](https://projecteuler.net/problem=112)
         * In order to determine if a number is bouncy, I used the mod function to iterate through a number. For an example, with the number 134468, I iterated through the number backwards, in the order 8-6-4-4-2-1 (8 = 134468%10, 6 = 13446%10, and so on). If the numbers kept increasing or decreasing to completion, the number is not bouncy. Otherwise, it is.
         With that function, I ran a while loop until the proportion of bouncy numbers reached exactly 0.99 (I actually started at 538, where the proportion of bouncy numbers first reaches 50% as seen in the problem to avoid a divide by zero error when calculating the proportion). I found the answer to be **1587000**.
