@@ -143,6 +143,18 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #91](https://projecteuler.net/problem=91)
+        * Whoo! This question is of 25% difficulty, which is the highest difficulty problem I have solved thus for in Project Euler! *Self five!*
+
+            My first step was finding the points that can make up all possible triangles. While there are many solutions out there, I decided to do some combinatorics! I generated all possible (x,y) integer pairs between 0 and 50 (inclusive) with the exception of (0,0), which turned out to be 2,600 points in total (51x51-1). Then, I found every two-point pair combination, which turned out to be 3378700 combinations, or 3378700 distinct triangles!
+
+            For step 2, I took each triangle and tried to find if the triangle contained a right angle. I went back to middle school geometry for this: we know that if two lines are parallel, their slopes are negative inverses. I thus wrote a function to check all three verticies of the triangle to see if the two sides met at 90 degrees. To deal with the problem that a slope would be infinity (vertical line), I used a try-except statement that would have any vertical lines have a slope of float("Inf"). (I would also like to mention that due to rounding error, as long as the slopes of the lines were within 0.0001 of their negative inverse, the triangle is considered a right triangle.) I iterated through all 3378700 triangles and found that **14234** triangles are right triangles.
+
+    * [Euler #19](https://projecteuler.net/problem=19)
+        * Ahhh, counting Sundays! (It is just me, or when every Sunday comes around, a bit of unease settles in knowing that tomorrow is Monday?)
+
+            So this was a relatively straightforward riddle. Thankfully, since we know that January 1, 1900 is a Monday, we know that the 7th day of the century, January 7, 1900, is a Sunday. The 14th day of the century, January 14, 1900, is also a Sunday. Thus, we know that if the nth day of the century is a Sunday, n has to be divisible by 7. From there on, I just "advanced the calendar" one month at a time. For an example, to advance from January to February, I add 31 days to the century. From February to March, I add 28 (or 29) days. And so on. Every 12th time I advance the calendar, I add one to the year. If the year is between 1901 and 2000 (inclusive), right after I advance the calendar, if the day of the century is divisible by 7, we know that the 1st of that month is a Sunday. I keep running this process until 2001, and I find that there are **171** Sundays in the century!
+
    * [Euler #85](https://projecteuler.net/problem=85)
         * In honor of Patrick Mahomes' wonderful performance this last Sunday night, I decided to tackle a Project Euler question of 15% difficulty (brownie points if you get the reference!).
 
