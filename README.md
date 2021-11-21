@@ -2,12 +2,25 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[11/19/21 Riddler Express](https://fivethirtyeight.com/features/are-you-the-fittest-gym-rat/)**
+    * pdf's and cdf's!
+
+        So at first glance, it seems like the answer is 50%. If you go to the gym 50% the time it is open, half of the people will go more often than you and half of the people will go less often than you - but as we have learned from Riddler, the answer never comes that easy.
+
+        On second thought, we know that if a person comes to the gym, say, 1% of the time it is open, you are less likely to meet that person than if a person comes to the gym 99% of the time. We know that the probability distribution is uniform from 0% to 100%, or f(x) = 1, and thus by simple integration, we know that the cumulative distribution is just F(x) = x.
+
+        ![](Vizes/1119cdf.png)
+
+        As we can see with the cdf, the integral on the interval [0, 0.5] is 0.25x as much as the integral from [0.5, 1]. Thus we know that the probability that the friend you meet goes to the gym more often than you is 3/4, or **75%**.
+
+        (I also made a simulation and found the answer to converge to 0.75!)
+
 * **[11/12/21 Riddler Express](https://fivethirtyeight.com/features/can-you-stick-it-to-the-genie/)**
     * So no, unfortunately I cannot stick it to the genie. I can, however, shoot dice.
 
         When we look at the three dice of d4, d6, and d8, we know that there are 4x6x8, or 192 unique combinations (or permutations? I can never get them straight) to be made. Of those, we want to find all the strictly increasing combinations. For an example, if on the d4 we roll a 3, we will only count rolls in which on the d6 we roll a 4, 5, or 6. On the d8, if the d6 roll were a 4, we will only count rolls of 5-8. If the d6 roll were a 5, 6-8. And a 6, then 7 and 8. Thus, I just made three for-loops to find all the possible strictly increasing sequences. I found there to be 48 strictly increasing sequences for a probability of 48/192, or **25%**.
 
-        Extra credit: For the extra credit, the same logic applies. This time, there are 4x6x8x10x12x20 unique combinations, or 460800 unique combinations. With 6 for-loops, I found that there are 5434 unique strictly increasing sequences for a probability of around **11.7925%**.
+        Extra credit: For the extra credit, the same logic applies. This time, there are 4x6x8x10x12x20 unique combinations, or 460800 unique combinations. With 6 for-loops, I found that there are 5434 unique strictly increasing sequences for a probability of around **1.-17925%**.
 
 * **[11/5/21 Riddler Classic](https://fivethirtyeight.com/features/how-many-friends-are-on-the-riddler-social-network/)**
     * Hi! What a nifty Riddler this was!
@@ -142,6 +155,32 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
 * **[Riddles.py](Riddles)**
+
+    * [Euler #78](https://projecteuler.net/problem=78)
+        * I will admit that for this riddle I got help (I know, I know), and I will get back to that later.
+
+            When I saw this question, the first thing that screamed to me was recursion and dynamic programming. To help explain, let's look at the partitions of 2, or p(2)=2:
+            * 2
+            * 1+1
+
+            Now let's look at the partitions of 5 (note that my partitions are listed in descending order from up to down, left to right):
+            * 5
+            * 4+1
+            * 3+2
+            * 3+1+1
+            * 2+2+1
+            * 2+1+1+1
+            * 1+1+1+1+1
+
+            Let's take a closer look at the partition of 5 where 3 is the largest "subparition," so 3+2 and 3+1+1. When 3 is the largest "subparition", we know that the remaining 2 coins can be split in 2 different ways, 2 and 1+1... which is exactly p(2)! Thus, we know that if the largest "subpartition" is 3, there are p(5-3) ways to partition. But hold up, what happens if the largest "subpartition" is 2? We cannot partition the coins in the manner of 2+3 because that would be double counting 3+2, and 2 < 3, but we can partition 2+2+1 and 2+1+1+1.
+            
+            So here is my rule: *if the largest "subpartition" is greater than or equal to the remaining elements (i.e. 3 > 2), we know that there are p(remainder) possibilities to partition. However, if the largest "subpartition" is less than the remaining elements (i.e. 2 < 3), we know there are p(remainder) possibilities minus all the possibilities in which the largest "subparition" is greater than this "subpartition".*
+            
+            I went on to code this problem using a dictionary where I would store every partition and "subpartition" to solve for subsequent partitions, but that process jacked up the time complexity and would not run. (I am well aware that there is another way of finding these partitions using pentagonal numbers which is much faster and efficient, but this is how I went about it.) Thus, I looked up the answer and found that the answer is less than 60,000, which is why I opted for a 60,000x60,000 matrix instead of a dictionary (faster lookup time). Still, this algorithm took an extremely long time to run, and I finally got an answer of 
+
+
+
+
 
     * [Euler #91](https://projecteuler.net/problem=91)
         * Whoo! This question is of 25% difficulty, which is the highest difficulty problem I have solved thus for in Project Euler! *Self five!*
