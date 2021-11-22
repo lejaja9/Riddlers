@@ -181,9 +181,10 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
             I took to [Wikipedia](https://en.wikipedia.org/wiki/Partition_(number_theory)) and found that Euler's ruler method can be used as a generating function to find partition numbers, which I then took to code. I found the answer to be **55374** with the number of partitions equalling 36325300925435785930832331577396761646715836173633893227071086460709268608053489541731404543537668438991170680745272159154493740615385823202158167635276250554555342115855424598920159035413044811245082197335097953570911884252410730174907784762924663654000000, and to my satisfaction it ran in about 10 seconds (compared to over 2 hours).
 
             And just for fun, I made two visualizations: one is a scatterplot of the breakdown of "subpartitions" for every partition number from 1-25, and the second is the partition number for numbers 1-25.
+            Here are the two visualizations below:
 
-
-
+            ![](Vizes/Euler/78/78_subpartitions.png)
+            ![](Vizes/Euler/78/78_partitions.png)
 
 
     * [Euler #91](https://projecteuler.net/problem=91)
