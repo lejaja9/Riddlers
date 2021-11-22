@@ -235,7 +235,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
     * [Euler #8](https://projecteuler.net/problem=8)
-        * In order to find the greatest product of 13 adjacent numbers in this ~big scary number~, I realized that I need to create a sliding window of size 13 and move that window through the entire number. The first step was to turn the ~big scary number~ into a list. Then, I created a sliding window of size 13 with the code `window = list[i-13:i]`. For every window, I would calculate the product. The maximum product is **23514624000**.
+        * In order to find the greatest product of 13 adjacent numbers in this \~big scary number\~, I realized that I need to create a sliding window of size 13 and move that window through the entire number. The first step was to turn the \~big scary number\~ into a list. Then, I created a sliding window of size 13 with the code `window = list[i-13:i]`. For every window, I would calculate the product. The maximum product is **23514624000**.
 
     * [Euler #3](https://projecteuler.net/problem=3)
         * For this problem, I kept dividing 600851475143 by 2 until I no longer could, then I would divide the resulting quotient by 3 until I no longer could... and so on until the dividend was greater than the divisor. The prime factors of 600851475143 are [71, 839, 1471, 6857], and thus the answer is **6857**.
