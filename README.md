@@ -7,9 +7,9 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
         So at first glance, it seems like the answer is 50%. If you go to the gym 50% the time it is open, half of the people will go more often than you and half of the people will go less often than you - but as we have learned from Riddler, the answer never comes that easy.
 
-        On second thought, we know that if a person comes to the gym, say, 1% of the time it is open, you are less likely to meet that person than if a person comes to the gym 99% of the time. We know that the probability distribution is uniform from 0% to 100%, or f(x) = 1; thus, we know that the expected value of the probability of someone attending the gym is the integral $$\int_a^b pdf(x) \times x \,dx$$, or $$\int_0^1 x \ dx$$
+        On second thought, we know that if a person comes to the gym, say, 1% of the time it is open, you are less likely to meet that person than if a person comes to the gym 99% of the time. We know that the probability distribution is uniform from 0% to 100%, or pdf(x) = 1; thus, we know that the expected value of the probability of someone attending the gym is the integral $$\int_a^b pdf(x) \times x \,dx$$, or $$\int_0^1 x \ dx$$
 
-        ![](Vizes/1119cdf.png)
+        ![](Vizes/1119integral.png)
 
         As we can see with this integral, the integral on the interval [0, 0.5] is 0.25x as much as the integral from [0.5, 1]. Thus we know that the probability that the friend you meet goes to the gym more often than you is 3/4, or **75%**.
 
@@ -176,7 +176,11 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
             
             So here is my rule: *if the largest "subpartition" is greater than or equal to the remaining elements (i.e. 3 > 2), we know that there are p(remainder) possibilities to partition. However, if the largest "subpartition" is less than the remaining elements (i.e. 2 < 3), we know there are p(remainder) possibilities minus all the possibilities in which the largest "subparition" is greater than this "subpartition".*
             
-            I went on to code this problem using a dictionary where I would store every partition and "subpartition" to solve for subsequent partitions, but that process jacked up the time complexity and would not run. (I am well aware that there is another way of finding these partitions using pentagonal numbers which is much faster and efficient, but this is how I went about it.) Thus, I looked up the answer and found that the answer is less than 60,000, which is why I opted for a 60,000x60,000 matrix instead of a dictionary (faster lookup time). Still, this algorithm took an extremely long time to run, and I finally got an answer of 
+            I went on to code this problem using a dictionary where I would store every partition and "subpartition" to solve for subsequent partitions, but that process jacked up the time complexity and would not run. Thus, I looked up the answer and found that the answer is less than 60,000, which is why I opted for a 60,000x60,000 matrix instead of a dictionary (faster lookup time). However, after calculating around the first 35,000 partition numbers, my computer gave me the dreaded Kill 9 error :( (and it took about 2 hours to run... not optimal).
+
+            I took to [Wikipedia](https://en.wikipedia.org/wiki/Partition_(number_theory)) and found that Euler's ruler method can be used as a generating function to find partition numbers, which I then took to code. I found the answer to be **55374** with the number of partitions equalling 36325300925435785930832331577396761646715836173633893227071086460709268608053489541731404543537668438991170680745272159154493740615385823202158167635276250554555342115855424598920159035413044811245082197335097953570911884252410730174907784762924663654000000, and to my satisfaction it ran in about 10 seconds (compared to over 2 hours).
+
+            And just for fun, I made two visualizations: one is a scatterplot of the breakdown of "subpartitions" for every partition number from 1-25, and the second is the partition number for numbers 1-25.
 
 
 
