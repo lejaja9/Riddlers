@@ -13,7 +13,8 @@ memo[3][3] = 3
 x = 4
 
 while memo[x-1][x-1]%1000000 != 0:
-    #print(x)
+    if x%100 == 0:
+        print(x)
     for i in range(1,x+1):
         if i == 1:
             memo[x][i] = 1
