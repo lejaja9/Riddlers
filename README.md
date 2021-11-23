@@ -156,6 +156,34 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #98](https://projecteuler.net/problem=98)
+        * I couldn't see a way to solve this problem other than brute force, and this problem didn't take too long to run, so that wasn't a big deal. There were quite a few steps to this problem!
+
+            * First, knowing that the longest word in the text file (and thus potentially the longest square number) is 14 characters, I generated a list of all square numbers less than or equal to 14 digits in length, which ended up being all the squares of the numbers from 1 to 9999999, with the largest square being around 9.99E13. In hindsight, I should've done this part after finding the anagram pairs, because the longest anagram pair was 8 characters in length each.
+            * Second, I found anagram pairs from the text file. To do so, I used a list of 26 length and the ord() function to create a map of each word. If two words had the same map, we know they are an anagram pair.
+            * Third, I created my anagramic_square() function which found (if any) the largest square number that a pair could form. To do so, I matched the pair with a square of the same length, and I made sure the mapping "fit." For an example, even though "FORMER" is 6 characters in length and 675684 is 6 digits in length, this is not a valid mapping because the two 'R''s in "FORMER" can't map to both 5 and 4 in 675684.
+            I iterated through the first word in the anagramic pair to create a valid dictionary mapping, and I used that mapping to build a second number with the complementary pair. If the second number is a square, we know that we have found an anagramic square!
+
+            I found the answer to be **18769** made from the pair ['BOARD', 'BROAD']. Here is a list of all the other anagramic pairs (and their largest value) I found!
+            * ['DOG', 'GOD'] 961
+            * ['HATE', 'HEAT'] 1936
+            * ['DEAL', 'LEAD'] 4761
+            * ['FILE', 'LIFE'] 9216
+            * ['MALE', 'MEAL'] 1936
+            * ['MEAN', 'NAME'] 9604
+            * ['NOW', 'OWN'] 961
+            * ['CARE', 'RACE'] 9216
+            * ['EAST', 'SEAT'] 2916
+            * ['ITS', 'SIT'] 961
+            * ['POST', 'SPOT'] 2916
+            * ['POST', 'STOP'] 9604
+            * ['SPOT', 'STOP']
+            * ['EAT', 'TEA'] 961
+            * ['RATE', 'TEAR'] 9604
+            * ['SHUT', 'THUS'] 4761
+            * ['NOTE', 'TONE'] 9216
+            * ['HOW', 'WHO'] 961
+
     * [Euler #78](https://projecteuler.net/problem=78)
         * I will admit that for this riddle I got help (I know, I know), and I will get back to that later.
 
