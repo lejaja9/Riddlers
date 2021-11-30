@@ -156,6 +156,11 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * Monopoly Odds!
+        * Inspired by [Project Euler #84](https://projecteuler.net/problem=84), I decided to calculate the probability of finishing a turn on every space in Monopoly.
+
+        ![](Vizes/Monopoly_prob.png)
+
     * [Euler #98](https://projecteuler.net/problem=98)
         * I couldn't see a way to solve this problem other than brute force, and this problem didn't take too long to run, so that wasn't a big deal. There were quite a few steps to this problem!
 

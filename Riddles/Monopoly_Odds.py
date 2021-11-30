@@ -2,6 +2,7 @@
 
 import numpy as np
 from itertools import chain
+import matplotlib.pyplot as plt
 
 #transition matrix with no movement (every space has an equal 2.5% chance of landing)
 matrix = np.zeros((40,40))
@@ -122,13 +123,29 @@ answer = np.dot(steady_state_matrix, initial)
 
 answer = list(chain.from_iterable(answer))
 
-list = []
+listt = []
 for i in range(len(answer)):
-    list.append([i, answer[i]])
+    listt.append([i, answer[i]])
 
-list.sort(key=lambda x: x[1], reverse = True)
-print(list)
+listt.sort(key=lambda x: x[1], reverse = True)
+#print(listt)
 
-Monopoly_spaces = ["Go", "Mediterranean Avenue", "Community Chest", "Baltic Avenue", "Income Tax", "Reading Railroad", "Oriental Avenue", "Chance", "Vermont Avenue", "Connecticut Avenue", "Jail / Just Visiting", "St. Charles Place", "Electric Company", "States Avenue", "Virginia Avenue","Pennsylvania Railroad", "St. James Place", "Community Chest", "Tennessee Avenue", "New York Avenue", "Free Parking", "Kentucky Avenue", "Chance", "Indiana Avenue", "Illinois Avenue", "B. & O. Railroad", "Atlantic Avenue", "Ventnor Avenue", "Water Works", "Marvin Gardens", "Go To Jail", "Pacific Avenue", "North Carolina Avenue", "Community Chest", "Pennsylvania Avenue", "Short Line", "Chance", "Park Place", "Luxury Tax", "Boardwalk"]
-pair = zip(Monopoly_spaces, answer)
-print(list(pair))
+print(answer)
+
+Monopoly_spaces = ["Go", "Mediterranean Avenue", "Community Chest 1", "Baltic Avenue", "Income Tax", "Reading Railroad", "Oriental Avenue", "Chance 1", "Vermont Avenue", "Connecticut Avenue", "Jail / Just Visiting", "St. Charles Place", "Electric Company", "States Avenue", "Virginia Avenue","Pennsylvania Railroad", "St. James Place", "Community Chest 2", "Tennessee Avenue", "New York Avenue", "Free Parking", "Kentucky Avenue", "Chance 2", "Indiana Avenue", "Illinois Avenue", "B. & O. Railroad", "Atlantic Avenue", "Ventnor Avenue", "Water Works", "Marvin Gardens", "Go To Jail", "Pacific Avenue", "North Carolina Avenue", "Community Chest 3", "Pennsylvania Avenue", "Short Line", "Chance 3", "Park Place", "Luxury Tax", "Boardwalk"]
+#pair = list(zip(Monopoly_spaces, answer))
+
+answer = list(answer)
+answer = [round(num, 4)*100 for num in answer]
+
+color = ['lightgray', 'indigo', 'dodgerblue', 'indigo', 'lightgray', 'black', 'lightblue', 'crimson', 'lightblue', 'lightblue', 'orangered', 'magenta', 'lemonchiffon', 'magenta', 'magenta', 'black', 'darkorange', 'dodgerblue', 'darkorange', 'darkorange', 'darkred', 'red', 'deepskyblue', 'red', 'red', 'black', 'yellow', 'yellow', 'white', 'yellow', 'royalblue', 'forestgreen', 'forestgreen', 'dodgerblue', 'forestgreen', 'black', 'tomato', 'mediumblue', 'gold', 'mediumblue']
+fig = plt.figure(figsize=(18,15))
+ax = fig.add_subplot()
+ax.set_facecolor('#ECFCF4')
+ax.bar(Monopoly_spaces, answer, color = color)
+ax.bar_label(ax.containers[0])
+plt.xticks(rotation=90)
+plt.title("Monopoly Space Odds", fontsize = 19)
+plt.xlabel("Space", fontsize = 15)
+plt.ylabel("Percent of Finishing Turn on Space", fontsize = 15)
+plt.show()
