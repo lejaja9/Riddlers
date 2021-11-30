@@ -157,7 +157,17 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 * **[Riddles.py](Riddles)**
 
     * Monopoly Odds!
-        * Inspired by [Project Euler #84](https://projecteuler.net/problem=84), I decided to calculate the probability of finishing a turn on every space in Monopoly.
+        * Inspired by [Project Euler #84](https://projecteuler.net/problem=84), I decided to calculate the probability of finishing a turn on every space in Monopoly. (BTW, the answer to Project Euler #84 is **101524**, or JAIL, R2, and E3). I initially decided to go about the problem by running a simulation, but I opted to create a Markov Chain, partly to learn about them.
+
+            (Disclaimer: the Monopoly odds I calculated are an approximation using the assumptions from Project Euler #84 and are thus not 100% accurate to the real game of Monopoly)
+
+            In creating this Markov Chain, I first started by creating a "default" probability matrix in which the probabilty of advancing from a given square to another square is just that of rolling the sum of two dice (1/36, 2/36, 3/36, etc.). After that, I had to consider the Community Chest and Chance spaces. For those, the probability of staying on the Community Chest and Chance spaces are (14/16) and (6/16) respectively, as some cards will move you to other spaces on the board. One thing to note here is that there is a Chance card that moves you 3 spaces back, which if landed on from Square 36 moves you to Community Chest, which may then move you to GO or JAIL.
+
+            I then had to consider the "GO TO JAIL" square, in which I just took the probability of landing on that square and added it to the probability of going to JAIL and then set the probability of "GO TO JAIL" to zero. There is no way one can end their turn on the "GO TO JAIL" square.
+
+            Lastly, I had to account for the fact that rolling 3 doubles in a row landed you in jail. For this rule, I multiplied the entire matrix by (215/216) and added (1/216) to the JAIL square... there are a lot of ways to go to jail!
+
+            As with the prompt in Project Euler, I found that the 3 most visited squares are indeed JAIL, ILLINOIS AVENUE (E3), and GO. Below is a chart that plots the frequencies of finishing your turn on all the spaces in Monopoly:
 
         ![](Vizes/Monopoly_prob.png)
 

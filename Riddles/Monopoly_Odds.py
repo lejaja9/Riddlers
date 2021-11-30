@@ -139,13 +139,12 @@ answer = list(answer)
 answer = [round(num, 4)*100 for num in answer]
 
 color = ['lightgray', 'indigo', 'dodgerblue', 'indigo', 'lightgray', 'black', 'lightblue', 'crimson', 'lightblue', 'lightblue', 'orangered', 'magenta', 'lemonchiffon', 'magenta', 'magenta', 'black', 'darkorange', 'dodgerblue', 'darkorange', 'darkorange', 'darkred', 'red', 'deepskyblue', 'red', 'red', 'black', 'yellow', 'yellow', 'white', 'yellow', 'royalblue', 'forestgreen', 'forestgreen', 'dodgerblue', 'forestgreen', 'black', 'tomato', 'mediumblue', 'gold', 'mediumblue']
-fig = plt.figure(figsize=(18,15))
+fig = plt.figure(figsize= (15, 12))
 ax = fig.add_subplot()
 ax.set_facecolor('#ECFCF4')
 ax.bar(Monopoly_spaces, answer, color = color)
 ax.bar_label(ax.containers[0])
-plt.xticks(rotation=90)
+plt.xticks(rotation=90, size = 5)
 plt.title("Monopoly Space Odds", fontsize = 19)
 plt.xlabel("Space", fontsize = 15)
 plt.ylabel("Percent of Finishing Turn on Space", fontsize = 15)
-plt.show()
