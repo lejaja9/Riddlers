@@ -156,6 +156,39 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #31](https://projecteuler.net/problem=31)
+
+        * Ah, so I am back to combinations!
+
+            For this problem, I just saw it as finding combinations with the use of [backtracking](https://www.youtube.com/watch?v=GBKI9VSKdGg). (I know there is also a dynamic programming solution with knapsacking, but I opted for my bread and butter of combinations.) I built a recursion tree, which I believe this picture below illustrates better than I could explain (they do say a picture is word a million words):
+
+            ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Comb-1024x420.png)
+
+            I found there to be **73682** distinct combinations to sum to $2, and the answer took around 10 seconds to run. Upon further Googling, it turns out that the dynamic programming answer takes almost no time to run, so I coded up that approach as well.
+
+            For the dynamic programming solution (and stay with me), we look at how many different combinations a subset of the coins can make a certain sum (I know that's a mouthful). For an example, we know that if we only had pennies, there is only 1 way to make 6 cents (6 pennies). What if we wanted to make 6 cents with only pennies and two-cent coins? Here are the combinations:
+
+            * 6 pennies
+            * 1 two-cent coin and 4 pennies
+            * 2 two-cent coins and 2 pennies
+            * 3 two-cent coints
+
+            And to illustrate my example, here are the combinations of making 4 cents with pennies and two-cent coins (note that 4 cents + two-cent coint = 6 cents):
+
+            * 4 pennies
+            * 1 two-cent coin and 2 pennies
+            * 2 two-cent coins
+
+            We can see that the last 3 combinations to make 6 cents are the exact same as the three combinations of making 4 cents plus a two-cent coin. From there, I derived a recursive relation, where row indicates what coins are avaliable and col indicating the target value:
+
+            ```python
+            dp[row][col] = dp[row-1][col] + dp[row][col-(coin value)]
+            ```
+            Still confused? [This video](https://www.youtube.com/watch?v=DJ4a7cmjZY0) is one of the best explanations I have watched when learning about knapsacking.
+
+            Well there we have it! Making combinations with repeats was one of the hardest combination/permutation problems for me to understand, and I am very happy to have practiced it with this problem!
+
+
     * Monopoly Odds!
         * Inspired by [Project Euler #84](https://projecteuler.net/problem=84), I decided to calculate the probability of finishing a turn on every space in Monopoly. (BTW, the answer to Project Euler #84 is **101524**, or JAIL, R2, and E3). I initially decided to go about the problem by running a simulation, but I opted to create a Markov Chain, partly to learn about them.
 
@@ -327,6 +360,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
             As the breaking point moves by x into the center, the space of the "sweet spot" increases by  x (in fact, it stretches out from the center of stick by length x). Thus, I integrated x from 0 to 0.5 (because we are only considering points on the left half of the stick) and multiplied the answer by 2 (to account for the fact that the first point can be either on the left half or right half of the stick). I found the probability to be **1/4**.
             
             ![](Vizes/1025/1025integral.png)
+            
     * 10/20 Riddle
         * While on a run, my friend gave me a teaser: approximate pi given a random number generator. *Whatttttt?!?!* For the next few miles, I was tortured by this question, and thankfully someone mused: "It's just throwing darts on a board." It hit me: Area = pi*r^2. If r = 1, area would just equal pi. In a 2x2 square (or as I found out, any square), the probability a dart would be in the circle is pi/4.
         From there, I used a random generator to generate (x,y) points in an 18x18 square (because my favorite number is 9). If the point was less than 9 units away from the center (9,9), the point was in the circle. If more than 9 units away, it was not. 
