@@ -164,9 +164,9 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
             ![Recursion Tree](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Comb-1024x420.png)
 
-            I found there to be **73682** distinct combinations to sum to $2, and the answer took around 10 seconds to run. Upon further Googling, it turns out that the dynamic programming answer takes almost no time to run, so I coded up that approach as well.
+            I found there to be **73682** distinct combinations to sum to $2, and the answer took around 10 seconds to run. Upon further Googleing, it turns out that the dynamic programming answer takes almost no time to run, so I coded up that approach as well.
 
-            For the dynamic programming solution (and stay with me), we look at how many different combinations a subset of the coins can make a certain sum (I know that's a mouthful). For an example, we know that if we only had pennies, there is only 1 way to make 6 cents (6 pennies). What if we wanted to make 6 cents with only pennies and two-cent coins? Here are the combinations:
+            For the dynamic programming solution (and stay with me), we look at how many different combinations a subset of the coins can make to reach a certain sum (I know that's a mouthful). For an example, we know that if we only had pennies, there is only 1 way to make 6 cents (6 pennies). What if we wanted to make 6 cents with only pennies and two-cent coins? Here are the combinations:
 
             * 6 pennies
             * 1 two-cent coin and 4 pennies
@@ -179,7 +179,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
             * 1 two-cent coin and 2 pennies
             * 2 two-cent coins
 
-            We can see that the last 3 combinations to make 6 cents are the exact same as the three combinations of making 4 cents plus a two-cent coin. From there, I derived a recursive relation, where row indicates what coins are avaliable and col indicating the target value:
+            We can see that the last 3 combinations to make 6 cents are the exact same as the three combinations of making 4 cents plus a two-cent coin. Thus, the number of combinations to make 6 cents using only pennies and two-cent coins is 1 (all pennies) + 3 (number of combinations making 4 cents). From there, I derived a recursive relation, where row indicates what coins are avaliable and col indicating the target value:
 
             ```python
             dp[row][col] = dp[row-1][col] + dp[row][col-(coin value)]
