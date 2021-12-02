@@ -162,7 +162,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
             For this problem, I just saw it as finding combinations with the use of [backtracking](https://www.youtube.com/watch?v=GBKI9VSKdGg). (I know there is also a dynamic programming solution with knapsacking, but I opted for my bread and butter of combinations.) I built a recursion tree, which I believe this picture below illustrates better than I could explain (they do say a picture is word a million words):
 
-            ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Comb-1024x420.png)
+            ![Recursion Tree](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Comb-1024x420.png)
 
             I found there to be **73682** distinct combinations to sum to $2, and the answer took around 10 seconds to run. Upon further Googling, it turns out that the dynamic programming answer takes almost no time to run, so I coded up that approach as well.
 
