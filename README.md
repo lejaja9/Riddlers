@@ -2,6 +2,24 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[12/3/21 Riddler Express](https://fivethirtyeight.com/features/can-you-slice-the-ice/)**
+    * Welcome back after a wonderful Thanksgiving break! And to those celebrating, Happy Hanukkah!
+
+        This Riddler, once again in the same family as combinations and permutations, is one of my favorites to solve. For this problem, I used a variation of [0/1 knapsacking](https://www.youtube.com/watch?v=xCbYmUPvc2Q) to find the number of ways to light candles for the menorah to stay balanced.
+
+        For an example, we know that with candles of values 1, 2, and 3, there is only one way to make a sum of 5 (2, 3). With the same combination of candles, we also know that there is only one way to make a sum of 1 (1). Well, how many ways of making a sum of 5 are there with the full set of candles with values 1, 2, 3, and 4? 
+        
+        We know the answer will be the number of ways of making 5 with candle 4 (which I will get to later) and without candle 4 (1 way, which is 2+3). The number of ways to make 5 with candle 4 is the number of ways of making 1 without candle 4, because 1+4 = 5 (and we can only use each candle once). Thus, the number of ways to make a sum of 5 with the full set of candles is 2, or 1+1. For the dynamic programming folks out there, I have the recurrence relation below, where the row signifies which candles are avaliable and the col signifies the target value:
+
+        ```python
+        matrix[row][col] = matrix[row-1][col] + matrix[row-1][col-(candle value)]
+        ```
+        The number of ways to make the sum [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] with all 4 candles is as follows: [1, 1, 2, 2, 2, 2, 2, 1, 1, 1]. From there, some quick maths will yield our solution.
+
+        What the question isn't clear about is if 'reflections' across the middle candle are allowed (i.e. if an orientation of (1,4; 2,3) is the same as an orientation of (2,3; 1,4)). If 'reflections' are allowed, there are **25 ways** to balance the menorah, and if they are not allowed, there are **20 ways** to balance the menorah.
+
+        Given my horrible balance, I am glad to be able to balance something. Because last weekend when I went to ski, I was probably in laying face first in the snow more often than not (or at the [massage parlor](https://www.alpenglowmassage.com/))!
+
 * **[11/19/21 Riddler Express](https://fivethirtyeight.com/features/are-you-the-fittest-gym-rat/)**
     * pdf's and expected value!
 
