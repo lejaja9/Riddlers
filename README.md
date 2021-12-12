@@ -2,6 +2,11 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[12/10/21 Riddler Classic](https://fivethirtyeight.com/features/en-garde-can-you-win-the-fencing-relay/)**
+    * This Riddler looks simple enough, but after thinking of all the possible outcomes for each strategy, I realized that the binomial distribution equation got real scary real quick. To circumvent this problem (and practice a bit of pandas), I ran 100,000 simulations for each of the strategies and found that the optimal strategy is a relay of **25-50-75** (more on that later).
+
+        When thinking of this problem, I knew two things: the 25% fencer had to either go first or second, and the 75% fencer could not fence first. This is because we want the worst fencer in as little points as possible, and we want the best fencer in as many points as possible.
+
 * **[12/3/21 Riddler Express](https://fivethirtyeight.com/features/can-you-slice-the-ice/)**
     * Welcome back after a wonderful Thanksgiving break! And to those celebrating, Happy Hanukkah!
 
