@@ -21,6 +21,8 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
         What I find interesting is that the winningest strategy has the highest expected score, while the worst strategy has the lowest expected score.
 
+        And for anyone who noticed, I did choose my stacked bar chart colors to match Red Bull Racing livery in honor of Max Verstappen's championship. Perhaps the best strategy of all is to [pit under a safety car](https://www.youtube.com/watch?v=MTe12fH2xtQ).
+
 * **[12/3/21 Riddler Express](https://fivethirtyeight.com/features/can-you-slice-the-ice/)**
     * Welcome back after a wonderful Thanksgiving break! And to those celebrating, Happy Hanukkah!
 
