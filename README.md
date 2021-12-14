@@ -3,9 +3,23 @@
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
 * **[12/10/21 Riddler Classic](https://fivethirtyeight.com/features/en-garde-can-you-win-the-fencing-relay/)**
-    * This Riddler looks simple enough, but after thinking of all the possible outcomes for each strategy, I realized that the binomial distribution equation got real scary real quick. To circumvent this problem (and practice a bit of pandas), I ran 100,000 simulations for each of the strategies and found that the optimal strategy is a relay of **25-50-75** (more on that later).
+    * This Riddler looks simple enough, but after thinking of all the possible outcomes for each strategy, I realized that the binomial distribution equation got real scary real quick. To circumvent this problem (and practice a bit of pandas with a visualization), I ran 100,000 simulations for each of the strategies and found that the optimal strategy is a relay of **25-50-75** and a win rate of around **93%** (more on that later).
 
-        When thinking of this problem, I knew two things: the 25% fencer had to either go first or second, and the 75% fencer could not fence first. This is because we want the worst fencer in as little points as possible, and we want the best fencer in as many points as possible.
+        When thinking of this problem, I knew two things right off the bat: the 25% fencer had to go first, and the 75% fencer could not fence first. This is because we want the worst fencer in as little points as possible, and we want the best fencer in as many points as possible. Let me explain my logic further:
+
+        * (Note that there is no expectation of the 25% fencer of winning any round) If the 25% fencer went first, the fencer would in all likelihood lose 15 points to the opponent while winning 5 points, thus fencing for 20 points. If the 25% fencer went second after the 50% fencer, the 25% fencer would be expected to fence at least 20 points (if trailing entering into round 2) and could very much fence more than 20 points (if leading into round 2). Furthermore, if the 25% fencer went anywhere after the 75% fencer, the 25% fencer would in all likelihood start with the lead. Thus, the fencer would fence for 20 points + more points proportional to the deficit the other team has. Thus, the 25% fencer cannot go after any other fencer.
+
+        * If the 75% fencer went first, the fencer is expected to fence only 20 points (15-5 lead). If the 75% fencer starts the round with a deficit (i.e. after the 25% fencer), the fencer is expected to make up the deficit and win the round, fencing for more than 20 points (fencing the first 20 points with a score of 15-5 and then additional points to make up the deficit).
+
+        With these two points in mind, there are only two viable strategies left: 25-50-75 and 25-75-50. By running simulations, we see that the 25-50-75 strategy has the highest chance of winning, with a win rate of around 93%. The 25-75-50 strategy has a win rate of around 82.5%. Interestingly enough, the 50-25-75 strategy has a win rate of around 92.5%, slightly off the win rate of the 25-50-75 strategy.
+
+        ![Bar graph of the winning percent of every strategy based on my simulation](Vizes/1210/1210bar.png)
+
+        Below, I also made a stacked bar chart to show the expected number of points won based on each strategy. These bars are grouped by inverse strategies, so we can see how the opponent would perform (we know that a strategy of 25-50-75 means an opposing strategy of 75-50-25):
+
+        ![Stacked bar chart showing the expected number of points won in each round](Vizes/1210/1210stacked_cluster.png)
+
+        What I find interesting is that the winningest strategy has the highest expected score, while the worst strategy has the lowest expected score.
 
 * **[12/3/21 Riddler Express](https://fivethirtyeight.com/features/can-you-slice-the-ice/)**
     * Welcome back after a wonderful Thanksgiving break! And to those celebrating, Happy Hanukkah!
