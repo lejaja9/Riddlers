@@ -195,6 +195,16 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #88](https://projecteuler.net/problem=88)
+
+        * So I decided to tackle lucky number 88 this time! Once again, while overwhemling at first sight, this problem became easier and easier as I broke it down into subproblems. After some Googleing, I decided that a brute force solution of finding every factorization of every number was the way to go.
+
+            I quickly realized that I only needed to factor numbers to 24,000 if we are looking at 2 <= K <= 12,000. This is because worst case, the minimal product-sum number for any given K is 2K, i.e. 1+1+1+...+1+2+K = 1x1x1x...x1x2xK = 2K. From there, I found the factorization of every number up to 24,000 via dynamic programming. For an example, we know that the factorization of 2 is just (2) and the factorizations of 4 is either (2,2) or (4) (eliminate the 1). Thus, to find the factorization of 8, we find every combination of one factorization of 2 and one factorization of 4, which ends up giving us a final answer of (2,2,2) and (2,4).
+
+            From there, I check every possible factorization (so for the case of 8, (2,2,2) and (2,4)) and see for which value of K that factorization would be a product-sum number. If the product-sum number is smaller than the current minimal product-sum number for K, I update that K value.
+
+            Lastly, I found the sum of the set (because no duplicates) of all minimal product-sum numbers from 2 to 12,000 and found the answer to be **7587457**.
+
     * [Euler #31](https://projecteuler.net/problem=31)
 
         * Ah, so I am back to combinations!
