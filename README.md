@@ -195,6 +195,16 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #90](https://projecteuler.net/problem=90)
+
+        * Aha! So another problem involving combinations!
+
+            Despite the relatively high difficulty of this problem compared to other Project Euler problems I have solved, it was one of combinations, which at this point is my bread and butter and was relatively straightforward.
+
+            I first created all possible six-sided dice using the digits from 0-9, which ended up being 210 distinct dice (10c6). Then, from the list of all possible dice, made every possible distinct pair of two dice, which ended up being 21,945 (210c2) pairs. I iterated through every of the 21,945 pairs and checked if the two dice could make all the two-digit square numbers. There are **1217** different pairs.
+
+            Anyway, enough talk about dice combinations for now. My plane just landed in Vegas, let's go shoot some dice!
+
     * [Euler #88](https://projecteuler.net/problem=88)
 
         * So I decided to tackle lucky number 88 this time! Once again, while overwhemling at first sight, this problem became easier and easier as I broke it down into subproblems. After some Googleing, I decided that a brute force solution of finding every factorization of every number was the way to go.
