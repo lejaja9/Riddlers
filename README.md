@@ -2,6 +2,11 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[12/23/21 Riddler Express](https://fivethirtyeight.com/features/can-you-outwit-the-tax-collector/)**
+    * Well everyone, HAPPY HOLIDAYS! After looking at this problem, I decided that to brute force this problem would be faster than any other approach I can do by hand. We know that we have 10 digits from 0-9, and HAPPY+HOLIDAYS = HOHOHOHO consists of 8 distinct variables, so there are 10P9, or 3628800 permutations to look at. But I know we can do better. Just taking a cursory glance at the equation, we know that L+1 = H, H+I >= 10, and (Y+S)%10 = O. With just these three rules in place, we only need to look at 15120 permutations. By assigning each index a letter, we can use every permutation to build HAPPY, HOLIDAYS, and HOHOHOHO. I find the two answers to be **84661+80723419=80808080** and **68332+61547829=61616161**.
+
+        So there we have it, my last Riddler for 2021. I hope you all enjoy, and Happy Holidays indeed!
+
 * **[12/10/21 Riddler Classic](https://fivethirtyeight.com/features/en-garde-can-you-win-the-fencing-relay/)**
     * This Riddler looks simple enough, but after thinking of all the possible outcomes for each strategy, I realized that the binomial distribution equation got real scary real quick. To circumvent this problem (and practice a bit of pandas with a visualization), I ran 100,000 simulations for each of the strategies and found that the optimal strategy is a relay of **25-50-75** and a win rate of around **93%** (more on that later).
 

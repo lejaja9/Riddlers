@@ -14,13 +14,15 @@ def permute(num_list):
 
     def helper(cume, mod_num_list):
         if len(cume) == 9:
-            ans.append(cume.copy())
+            if (int(cume[4])+1 == int(cume[2])) and ((int(cume[4])+int(cume[2])) >= 10) and ((int(cume[7])+int(cume[8]))%10 == int(cume[5])):
+                ans.append(cume.copy())
             return
         for i in range(len(mod_num_list)):
             cume.append(mod_num_list[i])
             helper(cume, mod_num_list[:i] + mod_num_list[i+1:])
             cume.pop()
     helper([], num_list)
+    print(len(ans))
     return ans
 
 
