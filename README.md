@@ -64,7 +64,7 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
         When we look at the three dice of d4, d6, and d8, we know that there are 4x6x8, or 192 unique combinations (or permutations? I can never get them straight) to be made. Of those, we want to find all the strictly increasing combinations. For an example, if on the d4 we roll a 3, we will only count rolls in which on the d6 we roll a 4, 5, or 6. On the d8, if the d6 roll were a 4, we will only count rolls of 5-8. If the d6 roll were a 5, 6-8. And a 6, then 7 and 8. Thus, I just made three for-loops to find all the possible strictly increasing sequences. I found there to be 48 strictly increasing sequences for a probability of 48/192, or **25%**.
 
-        Extra credit: For the extra credit, the same logic applies. This time, there are 4x6x8x10x12x20 unique combinations, or 460800 unique combinations. With 6 for-loops, I found that there are 5434 unique strictly increasing sequences for a probability of around **1.-17925%**.
+        Extra credit: For the extra credit, the same logic applies. This time, there are 4x6x8x10x12x20 unique combinations, or 460800 unique combinations. With 6 for-loops, I found that there are 5434 unique strictly increasing sequences for a probability of around **1.17925%**.
 
 * **[11/5/21 Riddler Classic](https://fivethirtyeight.com/features/how-many-friends-are-on-the-riddler-social-network/)**
     * Hi! What a nifty Riddler this was!
