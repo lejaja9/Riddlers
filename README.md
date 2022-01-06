@@ -200,6 +200,48 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #67](https://projecteuler.net/problem=67)
+
+        * Happy 2022, everyone!
+
+            I decided to start off the year with a series of dynamic programming questions, and this problem seemed like the perfect way to go - not too easy, not too hard.
+
+            We know that a brute force solution won't work... let's take another look at the example:
+
+            [3]
+
+            [7, 4]
+
+            [2, 4, 6]
+
+            [8, 5, 9, 3]
+
+            Because we want to find the maximum path to the bottom of the triangle by only moving to adjacent spaces, we know that if we start at 3, we can move to either 7 or 4 below. If we then choose 7, we can move below to 2 or 4 below (and so on). By working backwards, we can find the maximum path. Let's look at the bottom two rows:
+
+            [2, 4, 6]
+
+            [8, 5, 9, 3]
+
+            From 2, we can move to either 8 or 5 below; from 4, we can move to either 5 or 9 below; from 6, we can move to either 9 or 3 below. Thus, the maximum path from [2, 4, 6] will result in the sums [10, 13, 15], or [2+8, 4+9, 6+9]. From there, we can look at the next row up:
+
+            [7, 4]
+
+            [10, 13, 15]
+
+            We get the result [20, 19]. And finally,
+
+            [3]
+
+            [20, 19]
+
+            gives us the answer of 23. By using this pattern, we iterate backwards through the triangle with the code `triangle[row][col] += max(triangle[row+1][col], triangle[row+1][col+1])`.
+
+            Implementing the equation into the mega text file, we find the maximum path sum to be **7273**.
+
+            Happy New Years everyone! And just to say, my friends and I were commenting about how we have never seen a gym more crowded than on January 1.
+
+            
+
     * [Euler #90](https://projecteuler.net/problem=90)
 
         * Aha! So another problem involving combinations!
