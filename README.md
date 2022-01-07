@@ -2,6 +2,12 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[1/7/22 Riddler Express](https://fivethirtyeight.com/features/can-you-trek-the-triangle/)**
+    * Happy 2022, everyone! As the NFL season wraps up, with [teams going for 2 more than ever](https://www.youtube.com/watch?v=V1c8zgF4lVs), this problem seems like one that keeps head coaches awake at night. To illustrate this question, let's assume that the Ordinals will score two touchdowns. Thus, if we go for 2 after the first touchdown, we can win either by making the 2 point conversion and then scoring 7 on the next posession (no need to go for 2 again) or failing to convert on the first 2 point conversion, converting on the second, and winning in overtime. The probability of the first scenario happening is p, while the probability of the second scenario happening is p(1-p)x0.5. Thus, we need to solve for p given the equation p + p(1-p)x0.5 > 0.5. With a few taps of my lovely TI-84 calculator, we get the answer of **0.382**, or 38.2%.
+
+        As it turns out, [going for 2 down 14](https://www.cbssports.com/nfl/news/heres-why-pat-shurmur-going-for-two-down-14-was-the-right-call-despite-loony-giants-fans-feelings/) is a mathematically sound strategy. I hope Andy Reid keeps this in mind as KC begin their postseason run. Go Chiefs!
+
+
 * **[12/23/21 Riddler Express](https://fivethirtyeight.com/features/can-you-outwit-the-tax-collector/)**
     * Well everyone, HAPPY HOLIDAYS! After looking at this problem, I decided that to brute force this problem would be faster than any other approach I can do by hand. We know that we have 10 digits from 0-9, and HAPPY+HOLIDAYS = HOHOHOHO consists of 8 distinct variables, so there are 10P9, or 3628800 permutations to look at. But I know we can do better. Just taking a cursory glance at the equation, we know that L+1 = H, H+I >= 10, and (Y+S)%10 = O. With just these three rules in place, we only need to look at 15120 permutations. By assigning each index a letter, we can use every permutation to build HAPPY, HOLIDAYS, and HOHOHOHO. I find the two answers to be **84661+80723419=80808080** and **68332+61547829=61616161**.
 
@@ -199,6 +205,36 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 
 * **[Riddles.py](Riddles)**
+
+    * [Euler #82](https://projecteuler.net/problem=82)
+
+        * Going on with my series on dynamic programming to start off 2022, I decided to tackle this three way path sum, which I have never seen before.
+        
+            So you know those stories of how a million dollar idea starts as a doodle on a napkin at the dinner table? I figured out this problem at the dinner table over two nights and by scribbling over junk mail (Bed, Bath, and Beyond coupon, to be exact).
+
+            To make this problem easier to iterate, I decided to transpose the matrix. Thus, instead of traversing from left to right, the goal is to traverse from top to bottom. With that, let me explain my logic:
+
+            [131, 201, 630, 537, 805]
+
+            Above is the first row of the example matrix (the leftmost column). The minimum path sum is just the minimum of the row, or 131. Below is the second row of the matrix:
+
+            [673, 96, 803, 699, 732]
+
+            To find the minimum sum path to get from the first to the second row, we know that we will start somewhere in the first row, move down one, and potentially move some spaces to the right or some spaces to the left. The first step is to move down, which will give a sum of:
+
+            [804, 297, 1433, 1236, 1537]
+
+            Next, I will make a first pass moving from left to right, updating in minimum as I move along, with the minimum being the minimum of the sum above and the sum of the value to the left + the value in the matrix:
+
+            [804, 297, 1100, 1236, 1537]
+
+            I then make a second pass from right to left and update the minimum (which in this case nothing updates):
+
+            [804, 297, 1100, 1236, 1537]
+
+            We then know that the minimum path sum to get from the first to second row is 297. I do this for every row in the problem, and I get an answer of **260324**.
+
+            I know my explanation is a bit vague, but I think that by taking a quick look at my code, the answer will seem obvious.
 
     * [Euler #67](https://projecteuler.net/problem=67)
 
