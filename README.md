@@ -206,6 +206,14 @@ Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtye
 
 * **[Riddles.py](Riddles)**
 
+    * [Euler #83](https://projecteuler.net/problem=83)
+
+        * Finally finishing the series of "path sums" on Project Euler, I implemented [Dijkstra's Algorithm](https://www.youtube.com/watch?v=pVfj6mxhdMw) to find the minimum path sum in a dynamic programming/ breadth first search-ish process. My algorithm ran in around 1.5 seconds.
+
+            I initialized two dictionaries, one empty and named 'searched' and one with every single index of the matrix with a value pair of infinity named 'unsearched.' I then set the sum path of matrix point (0, 0) to the value of matrix[0][0] (4445, in this case), performed my BFS, and moved the point (0, 0) from unsearched to searched. To find the next point I would look at, I iterated over all remaining points (keys) in 'unsearched' and found the key with the minimum value pair. (I was looking to pop a heap to do this, but there is no built-in function to replace values in a heap as path sums update, hence the dictionary.) I kept updating sum paths until the 'unsearched' dictionary was empty.
+
+            I found the minimum path sum to be **425185**. And to all those wondering, don't worry. As backup I did look up the Bellman-Ford algorithm, so if there are ever negative values, I know what to do too. Peace!
+
     * [Euler #82](https://projecteuler.net/problem=82)
 
         * Going on with my series on dynamic programming to start off 2022, I decided to tackle this three way path sum, which I have never seen before.
