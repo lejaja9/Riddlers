@@ -30,4 +30,23 @@ def next_gen(list_of_points):
     return new_generation
 
 
-print(next_gen([(-1, 0), (0, 0), (0, -1), (0, 1), (1, 0), (-1, 1), (-1, -1), (1, 1), (1, -1)]))
+g1 = original_points
+print(g1, len(g1))
+g2 = next_gen(g1)
+print(g2, len(g2))
+g3 = next_gen(g2)
+print(g3, len(g3))
+g4 = next_gen(g3)
+print(g4, len(g4))
+g5 = next_gen(g4)
+print(g5, len(g5))
+g6 = next_gen(g5)
+print(g6, len(g6))
+g7 = next_gen(g6)
+print(g7, len(g7))
+g8 = next_gen(g7)
+print(g8, len(g8))
+g9 = next_gen(g8)
+print(g9, len(g9))
+g10 = next_gen(g9)
+print(g10, len(g10))
