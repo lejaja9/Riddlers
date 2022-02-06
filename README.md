@@ -2,6 +2,16 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[2/4/22 Riddler Express](https://fivethirtyeight.com/features/a-riddle-that-will-make-you-scream/)**
+
+    * Hey! I love Scream! Usher, anyone?
+
+        This question initially stumped me up and my first thought was to send this problem to my math major friend, but on second thought combinatorics is one of my stronger suits when it comes to solving Riddlers, and so I broke out my trusty [paper](https://www.moleskine.com/en-us/last-available-pieces/volant-journals-pine-green-and-lemon-yellow-8058647620626.html) and [pen](https://www.walmart.com/ip/Bic-Round-Stic-Ball-Pens-Medium-Point-10-Pkg-Blue/13432808). So let's start:
+
+        Out of the 5 actors, we can choose 3 of them, so we know that there are 10 distinct combinations we can pick (5C3). We know that 3 actors (Cox, Arquette, and Campbell) were in Scream, and 2 (Holland and Berry) are not. If we go 3/3, we know that there is only one combination - picking all 3 actors in Scream. If we go 2/3, there are 6 combinations - (3C2) multiplied by (2C1). Thus the answer is (6+1)/10, or **70%**. If we were to go 1/3, there would be 3 combinations, or (3C1) multipled by (2C2). And there is no way we can go 0/3.
+
+        I verified this answer by creating all distinct combinations in code, and it is indeed 70%. Not bad going for someone who hates horror movies! (No joke, during Joker I hid my eyes behind my jacked for most of the movie.)
+
 * **[01/28/22 Riddler Express and Classic](https://fivethirtyeight.com/features/can-you-tune-up-the-truck/)**
     * **Express:**
     Hi! After a brief hiatus, I am back on the Riddler grind!
