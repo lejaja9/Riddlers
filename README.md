@@ -2,6 +2,17 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[3/4/22 Riddler Express](https://fivethirtyeight.com/features/can-you-crawl-around-the-cone/)**
+    * This weekend I am flying cross country, and these long flights are not fun. I am so glad to have taken a screenshot of this Riddler to occupy me. Let's get to it:
+
+        To determine the probability of the number of flips that will land heads, we can use binomial distribution. In 3 flips, the probability that we get 0, 1, 2, and 3 heads are 12.5%, 37.5%, 37.5%, and 12.5% respectively. To determine the probability of the number of rolls that will be 1 or 6, we can use binomial distruibition again (this time with a 67%/33% split). The probability of rolling 0, 1, 2, and 3 ones or sixes is around 29.6%, 44.4%, 22.2%, and 3.7% respectively.
+
+        Getting the number of hearts gets a bit tricky. It took me a while to conceptualize, and I later realized the math is exactly the same as last month's 2/4 Riddler Express. We know that there are (52C3) distinct card combinations, or 22,100 distinct 3 card hands. In order to get 0 hearts, we need to draw 3 non-hearts from a pool of 39 cards (39C3), leading to 9139 distinct combinations. Thus, the probability we draw exactly 0 hearts is around 41.35%. In order to draw exactly 1 heart, we need to draw 1 heart from 13 avaliable hearts in the deck and 2 non-hearts from the remaining deck, leading to (13C1)x(39C2) combinations, or 9633 combinations. Thus, the probability we draw exactly 1 heart is around 43.59%. There are (13C2)x(39C1), or 3,042 combinations, or around 13.76%. And there are (13C3) or 286 ways to draw exactly 3 hearts, or around 1.29%.
+
+        To find the probability all 3 numbers are the same, we can just sum P(heads = 0 AND 1 or 6 = 0 AND hearts = 0) + ... + P(heads = 3 AND 1 or 6 = 3 AND hearts = 3). And because each event is independent, P(heads = 0 AND 1 or 6 = 0 AND hearts = 0) = P(heads = 0) x P(1 or 6 = 0) x P(hearts = 0). We get a final answer of around **9.95%**.
+
+        And just like that, there are now only 3 more hours left on my flight. Ughhhhhhh. AND despite all of this math, I have no desire to go to a casino.
+
 * **[2/4/22 Riddler Express](https://fivethirtyeight.com/features/a-riddle-that-will-make-you-scream/)**
 
     * Hey! I love Scream! Usher, anyone?
