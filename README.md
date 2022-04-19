@@ -2,6 +2,8 @@
 
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
+* **[4/8/22 Riddler Classic](https://fivethirtyeight.com/features/can-you-be-mediocre-enough-to-win/)**
+
 * **[3/18/22 Riddler Classic](https://fivethirtyeight.com/features/is-it-anyones-birthday/)**
     * First off, kudos to everyone who understood this problem - it took me a while to understand how this Riddler encodes box numbers, so for those who are having trouble understanding what exactly a 'ordered triple' means, let me explain:
 
