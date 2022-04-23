@@ -3,6 +3,28 @@
 Hi! Here is my repository for [538's weekly Riddler puzzles](https://fivethirtyeight.com/tag/the-riddler/) and more! The files in this repo are my code for either 538's bite-sized *Riddler Express* and/or their "slow puzzle movement" *Riddler Classic* in addition to any riddles I come across (usually while running or chatting with my run friends). I explain my logic for each riddle below. Enjoy!
 
 * **[4/8/22 Riddler Classic](https://fivethirtyeight.com/features/can-you-be-mediocre-enough-to-win/)**
+    * Ah, tic-tac-toe (with a twist)! It brings back such good memories of school bus rides and summer camp, and let's dive right in. For this 3x3x3 tic-tac-toe Riddler, I decided to generate every possible triple of spaces one can occupy on the board and verify if each triple is a winning combination. We know that in a 3x3x3 board there are 27 distinct spaces. Thus, we also know that 27 choose 3 is 2,925, which is the number of possible combinations I had to check!
+
+        ![3x3x3 tic-tac-toe visualization](Vizes/0408grid.png)
+
+        Above is my (slightly off-center) visualization of a 3x3x3 board that I whipped up with turtle. For our purposes, we can imagine the 3x3x3 board as a sort of Rubix's Cube (which also brings back memories of bus rides and summer camp).
+
+        To verify all the winning combinations of the 3x3x3 board, we can first look at the white face of the cube. We can think of this dimension as three regular tic-tac-toe boards stacked on top of another. Thus, as long as all the points of a triple are on the same "horizontal plane" (i.e. same z-coordinate), if they are aligned in a traditional winning combination for tic-tac-toe, the triple will be counted as a winning combination for this twist of tic-tac-toe.
+
+        Next, we can look at the red face of the cube. If we view this orientation as three vertical tic-tac-toe boards/ planes standing in front of another, we know that if all points are on the same vertical plane and make a winning combination for a traditional tic-tac-toe game, it is also a winning combination. However, in this case, I noted that we have already accounted for any "horizontal" winning combinations with the white face, so we need only look to see if any of the triples form a diagonal combination or a straight vertical stack.
+
+        Third, we look at the blue face of the cube. Once again, we can view this orientation as three tic-tac-toe boards in front of one another. Once again, if all the points share the same plane, we can look to see if the points make a winning combination on a regular tic-tac-toe board. However, for this case, we have already accounted for all horizontal and vertical winning combinations, so we need only check for any diagonal combinations.
+
+        Lastly, we have to look for four possible winning combinations going to opposite corners and through the center. For this scenario, I hard-coded the four cases.
+
+        If we are looking straight down at any face on the 3x3x3 board, we find that the real estate value is
+        747
+        454
+        747
+        with the very center square (hidden) having a real estate value of 13.
+
+        So rather than start with a corner as I usually always do with tic-tac-toe, next time I am going to mark the square.
+
 
 * **[3/18/22 Riddler Classic](https://fivethirtyeight.com/features/is-it-anyones-birthday/)**
     * First off, kudos to everyone who understood this problem - it took me a while to understand how this Riddler encodes box numbers, so for those who are having trouble understanding what exactly a 'ordered triple' means, let me explain:
